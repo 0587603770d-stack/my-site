@@ -3,126 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>בית חב"ד פלובדיב - האתר הרשמי</title>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&family=Heebo:wght@400;700&display=swap" rel="stylesheet">
+    <title>בית חב"ד פלובדיב - אטרקציות ומדריך למטייל</title>
     <style>
-        :root { --primary: #002c5f; --accent: #d4af37; --bg: #f0f2f5; }
-        body { font-family: 'Assistant', 'Heebo', sans-serif; margin: 0; padding: 0; background-color: var(--bg); color: #2d3436; line-height: 1.8; }
-        
-        header { background: linear-gradient(135deg, #001f44 0%, #003d85 100%); color: white; padding: 40px 20px; text-align: center; border-bottom: 4px solid var(--accent); }
-        
-        nav { background: white; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        nav a { color: var(--primary); margin: 0 12px; text-decoration: none; font-weight: 700; cursor: pointer; padding: 8px 15px; border-radius: 5px; transition: 0.3s; }
-        nav a:hover { background-color: #f0f4f8; color: var(--accent); }
-
-        /* כל הדפים מוסתרים כברירת מחדל */
-        .page-section { display: none; padding: 40px 20px; max-width: 1000px; margin: 25px auto; background: white; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
-        
-        /* עיצוב כותרות וטקסט */
-        h2 { color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 10px; }
-        .monologue { background: #f4f7fa; border-right: 8px solid var(--accent); padding: 25px; font-style: italic; margin: 20px 0; border-radius: 0 8px 8px 0; }
-        .rebbe-box { background: #fdfae6; border: 1px solid var(--accent); padding: 25px; border-radius: 12px; text-align: center; margin-bottom: 30px; }
-        .story-item { background: #f9f9f9; border-right: 4px solid var(--primary); padding: 20px; margin-bottom: 20px; }
-        
-        .attractions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
-        .card { border: 1px solid #eee; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .card img { width: 100%; height: 200px; object-fit: cover; }
-        
-        .whatsapp-btn { position: fixed; bottom: 20px; left: 20px; background: #25d366; color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 2000; }
-        
-        footer { text-align: center; padding: 30px; background: #001f44; color: white; margin-top: 40px; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; line-height: 1.6; }
+        header { background-color: #002c5f; color: white; padding: 20px; text-align: center; border-bottom: 3px solid #d4af37; }
+        nav { background: #001f44; padding: 10px; text-align: center; position: sticky; top: 0; z-index: 1000; }
+        nav a { color: white; margin: 0 10px; text-decoration: none; font-weight: bold; cursor: pointer; font-size: 0.9em; }
+        .section { display: none; padding: 40px 20px; max-width: 900px; margin: auto; background: white; min-height: 60vh; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 0 0 10px 10px; }
+        .active { display: block; }
+        .attraction-card { background: #f9f9f9; border-right: 5px solid #002c5f; padding: 20px; margin-bottom: 25px; border-radius: 5px; }
+        .attraction-card h3 { margin-top: 0; color: #002c5f; }
+        .btn-contact { display: inline-block; background: #d4af37; color: #002c5f; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 15px; }
+        h2 { color: #002c5f; border-bottom: 2px solid #d4af37; padding-bottom: 10px; }
+        .tips-box { background: #eef4fb; padding: 15px; border-radius: 8px; border: 1px Checkered #002c5f; margin-top: 20px; }
+        footer { text-align: center; padding: 40px 20px; color: #777; font-size: 0.9em; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>בית חב"ד פלובדיב</h1>
-    <p>בהנהלת השלוחים הרב מענדי וריקי מנדלזון</p>
-    <p style="font-size: 0.9em; opacity: 0.8;">תחת השליח הראשי לבולגריה הרב יוסף סלומון - סופיה</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Chabad_Logo.svg/1200px-Chabad_Logo.svg.png" alt="סמל חב"ד" style="height: 50px;">
+    <h1>בית חב"ד פלובדיב, בולגריה</h1>
 </header>
 
 <nav>
-    <a onclick="navigateTo('home')">דף הבית</a>
-    <a onclick="navigateTo('rebbe')">הרבי ותורתו</a>
-    <a onclick="navigateTo('travel')">אטרקציות</a>
-    <a onclick="navigateTo('reviews')">המלצות</a>
-    <a onclick="navigateTo('shabbat')">שבת ואירוח</a>
+    <a onclick="showSection('home')">דף הבית</a>
+    <a onclick="showSection('rebbe')">מתורת הרבי</a>
+    <a onclick="showSection('history')">היסטוריה</a>
+    <a onclick="showSection('travel')">אטרקציות ומדריך</a>
+    <a onclick="showSection('shabbat')">שבתות</a>
 </nav>
 
-<div id="home" class="page-section" style="display: block;">
-    <h2>ברוכים הבאים לבית חב"ד</h2>
-    <div class="monologue">
-        "כשאנחנו פותחים את דלתות בית חב"ד כאן בפלובדיב, המטרה שלנו היא אחת: שכל יהודי, בין אם הוא גר כאן ובין אם הוא מטייל, ירגיש שהוא הגיע הביתה. הרבי מליובאוויטש לימד אותנו שכל מצווה היא אור, ובכל חיוך וסיוע אנו מביאים את הגאולה קרוב יותר."
-    </div>
-    <p>השלוחים הרב מענדי וריקי מנדלזון פועלים בעיר מזה שנתיים, מקימים שיעורי תורה, תפילות ופעילות חסד ענפה.</p>
-    <h3>איפה אנחנו?</h3>
-    <iframe style="width:100%; height:350px; border-radius:12px; border:none;" src="http://googleusercontent.com/maps.google.com/7" loading="lazy"></iframe>
-</div>
-
-<div id="rebbe" class="page-section">
-    <div class="rebbe-box">
-        <h2>מנהיג הדור - הרבי</h2>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Menachem_Mendel_Schneerson.jpg" alt="הרבי" style="width:250px; border-radius:10px; margin-bottom:15px;">
-        <p><strong>"כשסופרים יהלומים, לא מתעייפים"</strong></p>
-    </div>
-    <h3>סיפורים מופלאים</h3>
-    <div class="story-item">
-        <strong>האמונה שבכל יהודי:</strong> סטודנט אמר לרבי שהוא לא מאמין באלוקים. הרבי ענה לו ברוגע: "גם אני לא מאמין באלוקים שאתה לא מאמין בו. האלוקים שאתה מתאר הוא דמיון. האלוקים שאני מכיר הוא אב רחמן שאוהב אותך ומחכה שתגלה את כוחות הנפש שלך".
-    </div>
-    <div class="story-item">
-        <strong>מעט אור דוחה הרבה חושך:</strong> הרבי הדגיש תמיד שלא צריך להילחם בחושך עם מקלות, אלא פשוט להדליק נר. מעשה טוב אחד קטן יכול לשנות את כל העולם.
+<div id="home" class="section active">
+    <h2>השליחות בפלובדיב</h2>
+    <p>בית חב"ד פלובדיב מנוהל על ידי השלוחים <strong>הרב מענדי מנדלזון וריקי</strong> יחד עם ילדיהם <strong>לוי ומוסיא</strong>. אנו כאן לכל עניין יהודי כבר שנתיים!</p>
+    <div style="text-align: center;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Kinus_Hashluchim_Group_Photo.jpg" alt="שלוחים" style="width:100%; max-width:500px; border-radius:10px;">
     </div>
 </div>
 
-<div id="travel" class="page-section">
-    <h2>אטרקציות בפלובדיב</h2>
-    <div class="attractions-grid">
-        <div class="card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Ancient_Theatre_Plovdiv_Bulgaria.jpg/500px-Ancient_Theatre_Plovdiv_Bulgaria.jpg" alt="תיאטרון">
-            <div style="padding:15px;"><h3>התיאטרון הרומי</h3><p>תיאטרון עתיק מהמאה ה-2 לספירה, מהשמורים והיפים באירופה.</p></div>
-        </div>
-        <div class="card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Plovdiv_Old_Town_Street.jpg/500px-Plovdiv_Old_Town_Street.jpg" alt="עיר עתיקה">
-            <div style="padding:15px;"><h3>העיר העתיקה</h3><p>סמטאות קסומות, בתים צבעוניים ואווירה של היסטוריה בכל פינה.</p></div>
-        </div>
+<div id="travel" class="section">
+    <h2>אטרקציות מרכזיות בפלובדיב</h2>
+    <p>פלובדיב היא אחת הערים העתיקות והיפות באירופה. הנה המקומות שאסור לכם לפספס:</p>
+
+    <div class="attraction-card">
+        <h3>1. התיאטרון הרומי העתיק (Ancient Theatre)</h3>
+        <p>אחד התיאטראות הרומיים השמורים ביותר בעולם. הוא נבנה במאה ה-2 לספירה ומשמש עד היום להופעות. מהתיאטרון נשקף נוף מרהיב של העיר והרי הרילו-רודופי.</p>
+    </div>
+
+    <div class="attraction-card">
+        <h3>2. העיר העתיקה (Old Town)</h3>
+        <p>מוזיאון פתוח של אדריכלות בולגרית מתקופת התחייה. סמטאות ציוריות מרוצפות אבן, בתים צבעוניים וגלריות אמנות. מקום מושלם לטיול רגלי רגוע.</p>
+    </div>
+
+    <div class="attraction-card">
+        <h3>3. רובע קפאנה (Kapana District)</h3>
+        <p>רובע האמנים והיצירה של פלובדיב. פירוש השם הוא "המצודה" או "המלכודת" בגלל סמטאותיו המפותלות. כיום זהו מרכז בתי קפה, גלריות ואווירה צעירה ותוססת.</p>
+    </div>
+
+    <div class="attraction-card">
+        <h3>4. האצטדיון הרומי והמדרחוב הראשי</h3>
+        <p>המדרחוב הארוך ביותר באירופה! מתחתיו עובר אצטדיון רומי עתיק שחלקו נחשף לקהל הרחב בכיכר המרכזית. לאורך הרחוב תמצאו חנויות רבות ומבנים היסטוריים.</p>
+    </div>
+
+    <div class="attraction-card">
+        <h3>5. גבעת נבוט טפה (Nebet Tepe)</h3>
+        <p>הנקודה שבה נוסדה העיר לפני אלפי שנים. ניתן לראות שם שרידים של חומות עתיקות וליהנות מהתצפית היפה ביותר על פלובדיב, במיוחד בשעת השקיעה.</p>
+    </div>
+
+    <div class="tips-box">
+        <h3>טיפים למטייל היהודי:</h3>
+        <ul>
+            <li><strong>כשרות:</strong> ניתן להשיג מוצרים כשרים בסיסיים בסופרמרקטים הגדולים (Billa, Lidl). לפרטים על אוכל כשר מוכן, צרו קשר איתנו.</li>
+            <li><strong>מרחקי הליכה:</strong> רוב האטרקציות נמצאות במרחק הליכה קצר אחת מהשנייה.</li>
+            <li><strong>תחבורה:</strong> המוניות בעיר זולות יחסית, אך מומלץ להשתמש באפליקציות מוכרות או לבקש מהמלון להזמין עבורכם.</li>
+        </ul>
     </div>
 </div>
 
-<div id="reviews" class="page-section">
-    <h2>המלצות ממטיילים</h2>
-    <div class="story-item">"אין מילים לתאר את החום והאהבה שקיבלנו מהרב מענדי וריקי. שולחן שבת ברמה הכי גבוהה שיש!" - משפחת כהן.</div>
-    <div class="story-item">"בית חב"ד פלובדיב הציל לנו את הטיול. עזרו לנו בכל מה שהיינו צריכים באדיבות מדהימה." - יוסי ועמית.</div>
+<div id="history" class="section">
+    <h2>היסטוריה וקהילה</h2>
+    <p>פלובדיב היא עיר עם שורשים יהודיים עמוקים וסיפור הצלה מופלא במלחמת העולם השנייה.</p>
 </div>
 
-<div id="shabbat" class="page-section">
-    <h2>שבת בבית חב"ד</h2>
-    <p>חוויה של פעם בחיים - סעודות שבת באווירה משפחתית בלב פלובדיב.</p>
-    <p><strong>עלות השתתפות:</strong> 50$ לאדם.</p>
-    <p>יש לתאם מראש בטלפון: 058-7679770</p>
+<div id="rebbe" class="section">
+    <h2>מתורת הרבי</h2>
+    <p>ניצוצות של אור ואמונה מהרבי מליובאוויטש.</p>
 </div>
 
-<a href="https://wa.me/972587679770" class="whatsapp-btn">שלחו לנו הודעה ב-WhatsApp</a>
+<div id="shabbat" class="section">
+    <h2>שבתות ואירוח</h2>
+    <p>סעודות שבת חמות ומזמינות בבית השלוחים. יש לתאם מראש!</p>
+    <a href="tel:0587679770" class="btn-contact">לתיאום: 058-7679770</a>
+</div>
 
 <footer>
-    <p>© כל הזכויות שמורות לבית חב"ד פלובדיב | בולגריה תשפ"ה</p>
+    <p>בית חב"ד פלובדיב | מפיצים אור בבולגריה | זכותו של הרבי תגן עלינו אמן</p>
 </footer>
 
 <script>
-    function navigateTo(id) {
-        // הסתרת כל הדפים
-        var sections = document.getElementsByClassName('page-section');
-        for (var i = 0; i < sections.length; i++) {
-            sections[i].style.display = 'none';
-        }
-        
-        // הצגת הדף הנבחר
-        var target = document.getElementById(id);
-        if (target) {
-            target.style.display = 'block';
-        }
-        
-        // גלילה לראש העמוד
-        window.scrollTo(0, 0);
+    function showSection(id) {
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        window.scrollTo(0,0);
     }
 </script>
 

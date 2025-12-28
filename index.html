@@ -3,95 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>בית חב"ד פלובדיב - המדריך המלא</title>
+    <title>בית חב"ד פלובדיב - האתר המלא והמרחיב</title>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&family=Heebo:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #002c5f; --accent: #d4af37; --light-bg: #f8f9fa; --text: #2d3436; }
+        :root { --primary: #002c5f; --accent: #d4af37; --text: #2d3436; }
         body { font-family: 'Assistant', 'Heebo', sans-serif; margin: 0; padding: 0; background-color: #f0f2f5; color: var(--text); line-height: 1.8; }
-        header { background: linear-gradient(135deg, #001f44 0%, #003d85 100%); color: white; padding: 40px 20px; text-align: center; border-bottom: 4px solid var(--accent); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
-        nav { background: white; padding: 10px; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        nav a { color: var(--primary); margin: 0 15px; text-decoration: none; font-weight: 700; cursor: pointer; transition: color 0.3s; }
+        header { background: linear-gradient(135deg, #001f44 0%, #003d85 100%); color: white; padding: 40px 20px; text-align: center; border-bottom: 4px solid var(--accent); }
+        nav { background: white; padding: 12px; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        nav a { color: var(--primary); margin: 0 15px; text-decoration: none; font-weight: 700; cursor: pointer; transition: 0.3s; }
         nav a:hover { color: var(--accent); }
-        .section { display: none; padding: 50px 20px; max-width: 1000px; margin: 30px auto; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .active { display: block; animation: fadeIn 0.5s ease; }
+        .section { display: none; padding: 50px 20px; max-width: 1000px; margin: 25px auto; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .active { display: block; animation: fadeIn 0.6s ease; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        h2 { color: var(--primary); text-align: center; font-size: 2.2em; margin-bottom: 30px; }
+        .monologue-box { background-color: #f4f7fa; border-right: 8px solid var(--accent); padding: 30px; margin: 25px 0; font-style: italic; font-size: 1.15em; color: var(--primary); line-height: 1.9; }
+        .rebbe-card { background-color: #fdfae6; border: 1px solid var(--accent); padding: 35px; margin: 30px 0; border-radius: 15px; text-align: center; }
+        .rebbe-img { width: 33%; min-width: 250px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .story-box { background: #f9f9f9; border-right: 5px solid var(--primary); padding: 25px; margin-bottom: 25px; border-radius: 0 8px 8px 0; }
+        .story-title { font-weight: bold; color: var(--primary); display: block; margin-bottom: 10px; font-size: 1.2em; }
         .attractions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .attraction-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s; border: 1px solid #eee; }
-        .attraction-card:hover { transform: translateY(-5px); }
-        .attraction-card img { width: 100%; height: 200px; object-fit: cover; }
-        .attraction-content { padding: 20px; }
-        .btn-contact { display: inline-block; background: var(--accent); color: var(--primary); padding: 14px 30px; text-decoration: none; border-radius: 50px; font-weight: bold; margin-top: 20px; transition: all 0.3s; box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3); }
-        .shliach-info { background: #eef4fb; padding: 25px; border-radius: 12px; border-right: 6px solid var(--primary); margin: 20px 0; }
-        footer { text-align: center; padding: 50px; background: #001f44; color: white; margin-top: 50px; }
+        .attraction-card { border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border: 1px solid #eee; }
+        .attraction-card img { width: 100%; height: 220px; object-fit: cover; }
+        .map-frame { width: 100%; height: 350px; border-radius: 12px; border: none; margin-top: 20px; }
+        .btn-contact { display: inline-block; background: var(--accent); color: var(--primary); padding: 15px 35px; text-decoration: none; border-radius: 50px; font-weight: bold; margin-top: 20px; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); }
+        footer { text-align: center; padding: 40px; background: #001f44; color: white; margin-top: 50px; }
     </style>
 </head>
 <body>
 
 <header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Chabad_Logo.svg/1200px-Chabad_Logo.svg.png" alt="סמל חב"ד" style="height: 60px; filter: brightness(0) invert(1);">
-    <h1>בית חב"ד פלובדיב</h1>
-    <p>תחת מוסדות חב"ד בולגריה</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Chabad_Logo.svg/1200px-Chabad_Logo.svg.png" alt="סמל חב"ד" style="height: 60px; filter: brightness(0) invert(1); margin-bottom: 10px;">
+    <h1>בית חב"ד פלובדיב, בולגריה</h1>
+    <p>תחת מוסדות חב"ד בולגריה ובהנהגת השליח הראשי הרב יוסף סלומון</p>
 </header>
 
 <nav>
     <a onclick="showSection('home')">דף הבית</a>
-    <a onclick="showSection('travel')">אטרקציות</a>
+    <a onclick="showSection('rebbe')">הרבי ותורתו</a>
+    <a onclick="showSection('travel')">מדריך למטייל</a>
     <a onclick="showSection('history')">היסטוריה</a>
-    <a onclick="showSection('rebbe')">מתורת הרבי</a>
     <a onclick="showSection('shabbat')">שבת ואירוח</a>
 </nav>
 
 <div id="home" class="section active">
-    <h2>ברוכים הבאים לפלובדיב</h2>
-    <div style="text-align: center;">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Kinus_Hashluchim_Group_Photo.jpg" alt="שלוחים" style="width:100%; max-width:600px; border-radius:15px; margin-bottom:20px;">
+    <h2>דבר השליח - הרב מענדי מנדלזון</h2>
+    <div class="monologue-box">
+        "כשאני פוסע בסמטאות המרוצפות של פלובדיב העתיקה, אני לא רואה רק אבנים בנות אלפי שנים, אלא אני רואה את הנשמות היהודיות שצועדות כאן היום. הרבי לימד אותנו שאין מקום בעולם שהוא 'מחוץ לתחום' לאור האלוקי. השליחות שלנו כאן, יחד עם ריקי והילדים לוי ומוסיא, היא להיות הבית שלכם רחוק מהבית. אנחנו לא כאן כדי רק לספק סעודה או קורת גג, אלא כדי להזכיר לכל אחד שהקשר שלו עם בוראו הוא נצחי, גם בלב הבלקן. בכל חיוך, בכל מילה טובה ובכל הדלקת נר, אנחנו בונים כאן יחד דירה לה' יתברך."
     </div>
+    <p>בית חב"ד פלובדיב פועל מזה כשנתיים בשיתוף פעולה מלא עם המרכז היהודי בסופיה. אנו מזמינים אתכם להצטרף למשפחתנו המתרחבת בכל יום בשבוע.</p>
     
-    <div class="shliach-info">
-        <h3>השלוחים בעיר</h3>
-        <p>בית חב"ד פלובדיב פועל כבר שנתיים בניהולם המרומם של השלוחים <strong>הרב מענדי מנדלזון ורעייתו ריקי</strong>, יחד עם ילדיהם <strong>לוי ומוסיא</strong>.</p>
-        <p>פעילות הבית והשליחות בעיר נערכת תחת הדרכתו והנהגתו של השליח הראשי למדינת בולגריה, <strong>הרב יוסף סלומון</strong>, הפועל בבית חב"ד המרכזי בעיר הבירה סופיה.</p>
-    </div>
-    <p style="text-align: center;">אנחנו כאן כדי להעניק לכם בית חם, אוזן קשבת וסיוע בכל עניין יהודי וגשמי בעת שהותכם בפלובדיב.</p>
+    <h3>מצאו אותנו על המפה:</h3>
+    <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2958.337651030932!2d24.7421623!3d42.1436159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14acd1a396269661%3A0x8e83b879a9572186!2sChabad%20of%20Plovdiv!5e0!3m2!1sen!2sil!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
 </div>
 
-<div id="travel" class="section">
-    <h2>אטרקציות מרכזיות</h2>
-    <div class="attractions-grid">
-        <div class="attraction-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Ancient_Theatre_Plovdiv_Bulgaria.jpg/800px-Ancient_Theatre_Plovdiv_Bulgaria.jpg" alt="התיאטרון הרומי">
-            <div class="attraction-content"><h3>התיאטרון הרומי</h3><p>תיאטרון עתיק ומרשים מהמאה ה-2 לספירה, המשמש עד היום לאירועי תרבות.</p></div>
-        </div>
-        <div class="attraction-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Plovdiv_Old_Town_Street.jpg/800px-Plovdiv_Old_Town_Street.jpg" alt="העיר העתיקה">
-            <div class="attraction-content"><h3>העיר העתיקה</h3><p>שיטוט בין בתים היסטוריים צבעוניים ואווירה של פעם בלב העיר המודרנית.</p></div>
+<div id="rebbe" class="section">
+    <div class="rebbe-card">
+        <h2>מנהיג דורנו - הרבי</h2>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Menachem_Mendel_Schneerson.jpg" alt="הרבי" class="rebbe-img">
+        <div style="text-align: right; line-height: 2;">
+            <p><strong>המונולוג:</strong> "כשמביטים בדמותו של הרבי, רואים רועה נאמן שאינו נח לרגע. הוא לא חיפש כבוד לעצמו, אלא חיפש את הניצוץ בכל יהודי. הרבי הוא זה שהפך אותנו משורדים – ללוחמים של אור. הוא לימד אותנו שכל פעולה קטנה, כל מצווה וכל מעשה טוב, הם הלבנים שמהן נבנה בית המקדש השלישי. המבט שלו חודר דרך המחיצות והמרחקים, לוחש לכל אחד מאיתנו: 'אני מאמין בך, יש לך כוח לשנות את העולם כולו'."</p>
         </div>
     </div>
-</div>
 
-<div id="shabbat" class="section">
-    <h2>סעודות שבת</h2>
-    <p>נשמח לארח אתכם לסעודות שבת באווירה יהודית חמה. יש לתאם מראש!</p>
-    <div style="text-align:center;">
-        <a href="tel:0587679770" class="btn-contact">צרו קשר בטלפון: 058-7679770</a>
+    <h3>מתורתו - פניני חסידות:</h3>
+    <div class="story-box">
+        <span class="story-title">מעט אור דוחה הרבה מן החושך</span>
+        במקום להילחם בחושך עם מקלות, עלינו פשוט להדליק נר. הרבי הדגיש תמיד את הצד החיובי – לא לחפש את הרע בזולת, אלא להאיר את הטוב שבו. כשהטוב מאיר, הרע נעלם מאליו.
     </div>
-</div>
+    <div class="story-box">
+        <span class="story-title">הכנה לגאולה</span>
+        הדור שלנו הוא הדור האחרון לגלות והראשון לגאולה. הרבי קרא לכל יהודי להוסיף בלימוד תורה ובקיום מצוות, ובמיוחד במצוות צדקה, כדי לזרז את ביאת המשיח "תיכף ומיד ממש".
+    </div>
 
-<div id="rebbe" class="section"><h2>הרבי מליובאוויטש</h2><p>מנהיג הדור ששלח אור לכל יהודי בעולם.</p></div>
-<div id="history" class="section"><h2>היסטוריה</h2><p>סיפורה המופלא של קהילת יהודי פלובדיב ונס הצלתה.</p></div>
-
-<footer>
-    <p>© כל הזכויות שמורות לבית חב"ד פלובדיב | בהנהגת הרב מענדי מנדלזון | תחת השליח הראשי הרב סלומון - סופיה</p>
-</footer>
-
-<script>
-    function showSection(id) {
-        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-        document.getElementById(id).classList.add('active');
-        window.scrollTo(0,0);
-    }
-</script>
-
-</body>
-</html>
+    <h3>סיפורים מופלאים:</h3>
+    <div class="story-box">
+        <span class="story-title">ספירת היהלומים</span>
+        שאלו את הרבי: "איך יש לך כוח לעמוד יום שלם על הרגליים ולחלק דולרים וברכות לאלפי אנשים ללא הפסקה?". הרבי ענה בחיוך: "כשסופרים יהלומים, לא מתעייפים". עבור הרבי, כל יהודי היה יהלום נדיר ויקר.
+    </div>

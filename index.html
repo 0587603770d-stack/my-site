@@ -3,103 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>בית חב"ד פלובדיב - בולגריה</title>
+    <title>בית חב"ד פלובדיב - המדריך המלא</title>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&family=Heebo:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; line-height: 1.6; }
-        header { background-color: #002c5f; color: white; padding: 20px; text-align: center; position: sticky; top: 0; z-index: 1000; border-bottom: 3px solid #d4af37; }
-        nav { background: #001f44; padding: 10px; text-align: center; }
-        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; cursor: pointer; }
-        .section { display: none; padding: 40px 20px; max-width: 900px; margin: auto; background: white; min-height: 60vh; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .active { display: block; }
-        .hero-img { width: 100%; max-width: 700px; border-radius: 10px; margin: 20px 0; }
-        .gallery { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-        .gallery img { width: 200px; height: 150px; object-fit: cover; border-radius: 5px; }
-        .btn-contact { display: inline-block; background: #d4af37; color: #002c5f; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 10px; }
-        h2 { color: #002c5f; border-bottom: 2px solid #d4af37; padding-bottom: 10px; }
-        .emergency { background: #fff1f1; border-right: 5px solid #ff4d4d; padding: 15px; margin: 10px 0; }
+        :root { --primary: #002c5f; --accent: #d4af37; --light-bg: #f8f9fa; --text: #2d3436; }
+        body { font-family: 'Assistant', 'Heebo', sans-serif; margin: 0; padding: 0; background-color: #f0f2f5; color: var(--text); line-height: 1.8; }
+        header { background: linear-gradient(135deg, #001f44 0%, #003d85 100%); color: white; padding: 40px 20px; text-align: center; border-bottom: 4px solid var(--accent); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        nav { background: white; padding: 10px; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        nav a { color: var(--primary); margin: 0 15px; text-decoration: none; font-weight: 700; cursor: pointer; transition: color 0.3s; }
+        nav a:hover { color: var(--accent); }
+        .section { display: none; padding: 50px 20px; max-width: 1000px; margin: 30px auto; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .active { display: block; animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        h2 { color: var(--primary); text-align: center; font-size: 2.2em; margin-bottom: 30px; }
+        .attractions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .attraction-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s; border: 1px solid #eee; }
+        .attraction-card:hover { transform: translateY(-5px); }
+        .attraction-card img { width: 100%; height: 200px; object-fit: cover; }
+        .attraction-content { padding: 20px; }
+        .btn-contact { display: inline-block; background: var(--accent); color: var(--primary); padding: 14px 30px; text-decoration: none; border-radius: 50px; font-weight: bold; margin-top: 20px; transition: all 0.3s; box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3); }
+        .shliach-info { background: #eef4fb; padding: 25px; border-radius: 12px; border-right: 6px solid var(--primary); margin: 20px 0; }
+        footer { text-align: center; padding: 50px; background: #001f44; color: white; margin-top: 50px; }
     </style>
 </head>
 <body>
 
 <header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Chabad_Logo.svg/1200px-Chabad_Logo.svg.png" alt="סמל חב"ד" style="height: 60px;">
-    <h1>בית חב"ד פלובדיב, בולגריה</h1>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Chabad_Logo.svg/1200px-Chabad_Logo.svg.png" alt="סמל חב"ד" style="height: 60px; filter: brightness(0) invert(1);">
+    <h1>בית חב"ד פלובדיב</h1>
+    <p>תחת מוסדות חב"ד בולגריה</p>
 </header>
 
 <nav>
     <a onclick="showSection('home')">דף הבית</a>
-    <a onclick="showSection('history')">היסטוריה יהודית</a>
-    <a onclick="showSection('travel')">מדריך למטייל</a>
-    <a onclick="showSection('shabbat')">אירוח ושבתות</a>
+    <a onclick="showSection('travel')">אטרקציות</a>
+    <a onclick="showSection('history')">היסטוריה</a>
+    <a onclick="showSection('rebbe')">מתורת הרבי</a>
+    <a onclick="showSection('shabbat')">שבת ואירוח</a>
 </nav>
 
 <div id="home" class="section active">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Kinus_Hashluchim_Group_Photo.jpg" alt="כינוס השלוחים" class="hero-img">
-    <h2>ברוכים הבאים לבית חב"ד</h2>
-    <p>בית חב"ד פלובדיב מנוהל על ידי השלוחים <strong>הרב מענדי מנדלזון ורעייתו ריקי</strong>, יחד עם ילדיהם היקרים <strong>לוי ומוסיא</strong>. המשפחה נמצאת כאן בשליחותו הקדושה של הרבי מליובאוויטש, להפיץ אור ויהדות ולדאוג לכל יהודי באהבה ובמאור פנים.</p>
+    <h2>ברוכים הבאים לפלובדיב</h2>
+    <div style="text-align: center;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Kinus_Hashluchim_Group_Photo.jpg" alt="שלוחים" style="width:100%; max-width:600px; border-radius:15px; margin-bottom:20px;">
+    </div>
     
-    <div style="background: #eef4fb; padding: 15px; border-radius: 10px;">
-        <p>אנו מקיימים פעילות ענפה בכל שבת וחג. לאחרונה חגגנו <strong>מסיבת חנוכה גדולה ומרהיבה</strong> בהשתתפות למעלה מ-100 איש! האולם היה מלא בתושבי המקום ובתיירים ישראלים שנהנו מאווירה חמה ושמחה יהודית אמיתית.</p>
+    <div class="shliach-info">
+        <h3>השלוחים בעיר</h3>
+        <p>בית חב"ד פלובדיב פועל כבר שנתיים בניהולם המרומם של השלוחים <strong>הרב מענדי מנדלזון ורעייתו ריקי</strong>, יחד עם ילדיהם <strong>לוי ומוסיא</strong>.</p>
+        <p>פעילות הבית והשליחות בעיר נערכת תחת הדרכתו והנהגתו של השליח הראשי למדינת בולגריה, <strong>הרב יוסף סלומון</strong>, הפועל בבית חב"ד המרכזי בעיר הבירה סופיה.</p>
     </div>
-
-    <h3>גלריה מחגיגות חנוכה:</h3>
-    <div class="gallery">
-        <img src="https://images.freeimages.com/images/large-previews/40b/chanukah-candles-1413645.jpg" alt="חנוכה 1">
-        <img src="https://images.freeimages.com/images/large-previews/7a0/chanukah-1413641.jpg" alt="חנוכה 2">
-    </div>
-
-    <p>השלוחים עומדים לרשותכם במסירות ובאכפתיות בכל עניין. צרו קשר:</p>
-    <a href="tel:0587679770" class="btn-contact">התקשרו לרב מענדי: 0587679770</a>
-</div>
-
-<div id="history" class="section">
-    <h2>העיר פלובדיב והיסטוריה יהודית</h2>
-    <p>פלובדיב היא אחת הערים העתיקות בעולם. הקהילה היהודית בה הייתה לאורך דורות קהילה מפוארת ושוקקת חיים. במהלך מלחמת העולם השנייה, בולט פועלם של תושבי העיר והכנסייה המקומית שמנעו את גירוש יהודי העיר, מה שהפך את פלובדיב לסמל של סובלנות ואחווה.</p>
+    <p style="text-align: center;">אנחנו כאן כדי להעניק לכם בית חם, אוזן קשבת וסיוע בכל עניין יהודי וגשמי בעת שהותכם בפלובדיב.</p>
 </div>
 
 <div id="travel" class="section">
-    <h2>מדריך למטייל בפלובדיב</h2>
-    <h3>אטרקציות מרכזיות:</h3>
-    <ul>
-        <li>התיאטרון הרומי העתיק</li>
-        <li>העיר העתיקה (Old Town)</li>
-        <li>מדרחוב הקניות הראשי</li>
-    </ul>
-
-    <h3>המלצות על מלונות:</h3>
-    <p>מומלץ ללון באזור העיר העתיקה או ליד המדרחוב כדי להיות קרובים למרכז העיר ולבית חב"ד.</p>
-
-    <div class="emergency">
-        <h3>מספרי חירום והדרכה:</h3>
-        <p>משטרה: 166 | אמבולנס: 150 | כיבוי אש: 160</p>
+    <h2>אטרקציות מרכזיות</h2>
+    <div class="attractions-grid">
+        <div class="attraction-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Ancient_Theatre_Plovdiv_Bulgaria.jpg/800px-Ancient_Theatre_Plovdiv_Bulgaria.jpg" alt="התיאטרון הרומי">
+            <div class="attraction-content"><h3>התיאטרון הרומי</h3><p>תיאטרון עתיק ומרשים מהמאה ה-2 לספירה, המשמש עד היום לאירועי תרבות.</p></div>
+        </div>
+        <div class="attraction-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Plovdiv_Old_Town_Street.jpg/800px-Plovdiv_Old_Town_Street.jpg" alt="העיר העתיקה">
+            <div class="attraction-content"><h3>העיר העתיקה</h3><p>שיטוט בין בתים היסטוריים צבעוניים ואווירה של פעם בלב העיר המודרנית.</p></div>
+        </div>
     </div>
 </div>
 
 <div id="shabbat" class="section">
-    <h2>אירוח בשבתות</h2>
-    <p>אנו שמחים לארח אתכם לסעודות שבת באווירה משפחתית ורוחנית בבית השלוחים.</p>
-    <p><strong>שימו לב:</strong> בשל הביקוש הרב, יש לתאם את ההגעה מראש.</p>
-    <div style="font-size: 1.2em; color: #002c5f; font-weight: bold;">
-        עלות השתתפות בסעודות: 50$ לאדם.
+    <h2>סעודות שבת</h2>
+    <p>נשמח לארח אתכם לסעודות שבת באווירה יהודית חמה. יש לתאם מראש!</p>
+    <div style="text-align:center;">
+        <a href="tel:0587679770" class="btn-contact">צרו קשר בטלפון: 058-7679770</a>
     </div>
-    <br>
-    <a href="https://wa.me/972587679770" class="btn-contact">שלחו הודעה לתיאום בווטסאפ</a>
 </div>
 
+<div id="rebbe" class="section"><h2>הרבי מליובאוויטש</h2><p>מנהיג הדור ששלח אור לכל יהודי בעולם.</p></div>
+<div id="history" class="section"><h2>היסטוריה</h2><p>סיפורה המופלא של קהילת יהודי פלובדיב ונס הצלתה.</p></div>
+
 <footer>
-    <p>בית חב"ד פלובדיב - בשליחות הרבי מליובאוויטש | זכותו תגן עלינו אמן</p>
+    <p>© כל הזכויות שמורות לבית חב"ד פלובדיב | בהנהגת הרב מענדי מנדלזון | תחת השליח הראשי הרב סלומון - סופיה</p>
 </footer>
 
 <script>
     function showSection(id) {
-        // מסתיר את כל הדפים
         document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-        // מציג את הדף הנבחר
         document.getElementById(id).classList.add('active');
-        // גולל לראש הדף
         window.scrollTo(0,0);
     }
 </script>
 
 </body>
-    </html>
+</html>

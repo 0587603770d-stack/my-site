@@ -3,121 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>הרבי מליובאוויטש - מפעל השליחות העולמי</title>
+    <title>בית חב"ד פלובדיב - בולגריה</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-            line-height: 1.6;
-        }
-        header {
-            background-color: #002c5f;
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
-        .hero-image {
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-        .container {
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        h2 {
-            color: #002c5f;
-            border-bottom: 2px solid #d4af37;
-            padding-bottom: 10px;
-        }
-        .shlichut-section {
-            background-color: #f9f9f9;
-            border-right: 5px solid #002c5f;
-            padding: 15px;
-            margin: 20px 0;
-        }
-        .map-container {
-            margin: 30px 0;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        .chabad-finder {
-            text-align: center;
-            margin-top: 40px;
-            padding: 20px;
-            background-color: #eef4fb;
-            border-radius: 8px;
-        }
-        .btn-finder {
-            display: inline-block;
-            background-color: #002c5f;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-        .btn-finder:hover {
-            background-color: #00408a;
-        }
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: #777;
-            border-top: 1px solid #eee;
-        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; line-height: 1.6; }
+        header { background-color: #002c5f; color: white; padding: 20px; text-align: center; position: sticky; top: 0; z-index: 1000; border-bottom: 3px solid #d4af37; }
+        nav { background: #001f44; padding: 10px; text-align: center; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; cursor: pointer; }
+        .section { display: none; padding: 40px 20px; max-width: 900px; margin: auto; background: white; min-height: 60vh; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .active { display: block; }
+        .hero-img { width: 100%; max-width: 700px; border-radius: 10px; margin: 20px 0; }
+        .gallery { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+        .gallery img { width: 200px; height: 150px; object-fit: cover; border-radius: 5px; }
+        .btn-contact { display: inline-block; background: #d4af37; color: #002c5f; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 10px; }
+        h2 { color: #002c5f; border-bottom: 2px solid #d4af37; padding-bottom: 10px; }
+        .emergency { background: #fff1f1; border-right: 5px solid #ff4d4d; padding: 15px; margin: 10px 0; }
     </style>
 </head>
 <body>
 
 <header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Menachem_Mendel_Schneerson.jpg" alt="הרבי מליובאוויטש" class="hero-image">
-    <h1>כ"ק אדמו"ר מנחם מענדל שניאורסון זצוק"ל</h1>
-    <p>נשיא דורנו ומייסד מפעל השליחות</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Chabad_Logo.svg/1200px-Chabad_Logo.svg.png" alt="סמל חב"ד" style="height: 60px;">
+    <h1>בית חב"ד פלובדיב, בולגריה</h1>
 </header>
 
-<div class="container">
-    <h2>מפעל השליחות העולמי</h2>
+<nav>
+    <a onclick="showSection('home')">דף הבית</a>
+    <a onclick="showSection('history')">היסטוריה יהודית</a>
+    <a onclick="showSection('travel')">מדריך למטייל</a>
+    <a onclick="showSection('shabbat')">אירוח ושבתות</a>
+</nav>
+
+<div id="home" class="section active">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Kinus_Hashluchim_Group_Photo.jpg" alt="כינוס השלוחים" class="hero-img">
+    <h2>ברוכים הבאים לבית חב"ד</h2>
+    <p>בית חב"ד פלובדיב מנוהל על ידי השלוחים <strong>הרב מענדי מנדלזון ורעייתו ריקי</strong>, יחד עם ילדיהם היקרים <strong>לוי ומוסיא</strong>. המשפחה נמצאת כאן בשליחותו הקדושה של הרבי מליובאוויטש, להפיץ אור ויהדות ולדאוג לכל יהודי באהבה ובמאור פנים.</p>
     
-    <div class="shlichut-section">
-        <p>
-            מפעל השליחות של הרבי הוא המהפכה היהודית הגדולה ביותר בדורנו. הרבי שלח אלפי שלוחים לכל פינה בעולם כדי לדאוג לכל יהודי ויהודי, בגשמיות וברוחניות, מתוך אהבת ישראל טהורה.
-        </p>
+    <div style="background: #eef4fb; padding: 15px; border-radius: 10px;">
+        <p>אנו מקיימים פעילות ענפה בכל שבת וחג. לאחרונה חגגנו <strong>מסיבת חנוכה גדולה ומרהיבה</strong> בהשתתפות למעלה מ-100 איש! האולם היה מלא בתושבי המקום ובתיירים ישראלים שנהנו מאווירה חמה ושמחה יהודית אמיתית.</p>
     </div>
 
-    <h3>"ופרצת ימה וקדמה וצפונה ונגבה"</h3>
-    <p>כיום פועלים למעלה מ-5,000 מרכזים המהווים כתובת לכל עניין יהודי ב-100 מדינות ברחבי הגלובוס.</p>
-
-    <div class="map-container">
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.7501931608!2d-73.9452285!3d40.66695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b90f4886b61%3A0x89e27306f9d7c07b!2s770%20Eastern%20Pkwy%2C%20Brooklyn%2C%20NY%2011213%2C%20USA!5e0!3m2!1sen!2sil!4v1700000000000" 
-            width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <h3>גלריה מחגיגות חנוכה:</h3>
+    <div class="gallery">
+        <img src="https://images.freeimages.com/images/large-previews/40b/chanukah-candles-1413645.jpg" alt="חנוכה 1">
+        <img src="https://images.freeimages.com/images/large-previews/7a0/chanukah-1413641.jpg" alt="חנוכה 2">
     </div>
 
-    <div class="chabad-finder">
-        <h3>זקוקים לעזרה? מחפשים בית חם?</h3>
-        <p>מצאו את בית חב"ד הקרוב אליכם ביותר בכל מקום בעולם.</p>
-        <a href="https://www.chabad.org/centers/default_cdo/aid/15676/jewish/Chabad-Lubavitch-Center-Search.htm" target="_blank" class="btn-finder">
-            לחיפוש בית חב"ד הקרוב
-        </a>
+    <p>השלוחים עומדים לרשותכם במסירות ובאכפתיות בכל עניין. צרו קשר:</p>
+    <a href="tel:0587679770" class="btn-contact">התקשרו לרב מענדי: 0587679770</a>
+</div>
+
+<div id="history" class="section">
+    <h2>העיר פלובדיב והיסטוריה יהודית</h2>
+    <p>פלובדיב היא אחת הערים העתיקות בעולם. הקהילה היהודית בה הייתה לאורך דורות קהילה מפוארת ושוקקת חיים. במהלך מלחמת העולם השנייה, בולט פועלם של תושבי העיר והכנסייה המקומית שמנעו את גירוש יהודי העיר, מה שהפך את פלובדיב לסמל של סובלנות ואחווה.</p>
+</div>
+
+<div id="travel" class="section">
+    <h2>מדריך למטייל בפלובדיב</h2>
+    <h3>אטרקציות מרכזיות:</h3>
+    <ul>
+        <li>התיאטרון הרומי העתיק</li>
+        <li>העיר העתיקה (Old Town)</li>
+        <li>מדרחוב הקניות הראשי</li>
+    </ul>
+
+    <h3>המלצות על מלונות:</h3>
+    <p>מומלץ ללון באזור העיר העתיקה או ליד המדרחוב כדי להיות קרובים למרכז העיר ולבית חב"ד.</p>
+
+    <div class="emergency">
+        <h3>מספרי חירום והדרכה:</h3>
+        <p>משטרה: 166 | אמבולנס: 150 | כיבוי אש: 160</p>
     </div>
 </div>
 
+<div id="shabbat" class="section">
+    <h2>אירוח בשבתות</h2>
+    <p>אנו שמחים לארח אתכם לסעודות שבת באווירה משפחתית ורוחנית בבית השלוחים.</p>
+    <p><strong>שימו לב:</strong> בשל הביקוש הרב, יש לתאם את ההגעה מראש.</p>
+    <div style="font-size: 1.2em; color: #002c5f; font-weight: bold;">
+        עלות השתתפות בסעודות: 50$ לאדם.
+    </div>
+    <br>
+    <a href="https://wa.me/972587679770" class="btn-contact">שלחו הודעה לתיאום בווטסאפ</a>
+</div>
+
 <footer>
-    <p>זכותו תגן עלינו ועל כל ישראל אמן</p>
+    <p>בית חב"ד פלובדיב - בשליחות הרבי מליובאוויטש | זכותו תגן עלינו אמן</p>
 </footer>
 
+<script>
+    function showSection(id) {
+        // מסתיר את כל הדפים
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        // מציג את הדף הנבחר
+        document.getElementById(id).classList.add('active');
+        // גולל לראש הדף
+        window.scrollTo(0,0);
+    }
+</script>
+
 </body>
-</html>
+    </html>

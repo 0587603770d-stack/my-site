@@ -6,96 +6,104 @@
     <title>בית חב"ד פלובדיב - המרכז ליהדות ואור</title>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&family=Heebo:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #002c5f; --accent: #d4af37; --bg: #f0f2f5; }
-        body { font-family: 'Assistant', 'Heebo', sans-serif; margin: 0; padding: 0; background-color: var(--bg); color: #2d3436; line-height: 1.8; }
+        :root { --primary: #002c5f; --accent: #d4af37; --bg: #f8f9fa; }
+        body { font-family: 'Assistant', 'Heebo', sans-serif; margin: 0; padding: 0; background-color: var(--bg); color: #333; line-height: 1.8; }
         
-        header { background: linear-gradient(135deg, #001f44 0%, #003d85 100%); color: white; padding: 30px 20px; text-align: center; border-bottom: 4px solid var(--accent); }
-        .logo-bulgaria { height: 80px; margin-bottom: 15px; filter: brightness(0) invert(1); }
+        header { background: linear-gradient(135deg, #001f44 0%, #003d85 100%); color: white; padding: 40px 20px; text-align: center; border-bottom: 5px solid var(--accent); }
+        .logo-bulgaria { height: 90px; margin-bottom: 15px; filter: brightness(0) invert(1); }
         
-        nav { background: white; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        nav a { color: var(--primary); margin: 0 10px; text-decoration: none; font-weight: 700; cursor: pointer; padding: 8px 15px; border-radius: 5px; transition: 0.3s; font-size: 0.95em; }
+        nav { background: white; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 15px rgba(0,0,0,0.1); }
+        nav a { color: var(--primary); margin: 0 10px; text-decoration: none; font-weight: 700; cursor: pointer; padding: 10px 15px; border-radius: 8px; transition: 0.3s; }
         nav a:hover { background-color: #f0f4f8; color: var(--accent); }
 
-        .page-section { display: none; padding: 40px 20px; max-width: 1000px; margin: 25px auto; background: white; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
+        .page-section { display: none; padding: 50px 25px; max-width: 1000px; margin: 30px auto; background: white; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
         
-        h2 { color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 10px; margin-top: 0; }
-        .monologue { background: #f4f7fa; border-right: 8px solid var(--accent); padding: 30px; font-style: italic; margin: 25px 0; border-radius: 0 8px 8px 0; font-size: 1.1em; line-height: 1.9; color: #001f44; }
-        .rebbe-box { background: #fdfae6; border: 1px solid var(--accent); padding: 35px; border-radius: 12px; text-align: center; margin-bottom: 30px; }
-        .story-item { background: #f9f9f9; border-right: 4px solid var(--primary); padding: 25px; margin-bottom: 25px; border-radius: 0 8px 8px 0; }
-        .story-title { font-weight: bold; color: var(--primary); font-size: 1.2em; display: block; margin-bottom: 10px; }
+        h2 { color: var(--primary); border-bottom: 3px solid var(--accent); padding-bottom: 15px; font-size: 2em; }
+        .monologue { background: #f1f5f9; border-right: 10px solid var(--accent); padding: 35px; font-style: italic; margin: 30px 0; border-radius: 0 12px 12px 0; font-size: 1.2em; color: #002c5f; line-height: 2; shadow: inset 0 0 10px rgba(0,0,0,0.02); }
         
-        .attractions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .card { border: 1px solid #eee; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .card img { width: 100%; height: 220px; object-fit: cover; }
+        .rebbe-card { background: #fffcf0; border: 2px solid var(--accent); padding: 40px; border-radius: 20px; text-align: center; margin-bottom: 40px; }
+        .rebbe-img { width: 280px; height: auto; border-radius: 15px; margin-bottom: 25px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); border: 4px solid white; }
         
-        .whatsapp-btn { position: fixed; bottom: 20px; left: 20px; background: #25d366; color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 2000; }
+        .story-item { background: #ffffff; border: 1px solid #eee; border-right: 6px solid var(--primary); padding: 30px; margin-bottom: 30px; border-radius: 0 12px 12px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+        .story-title { font-weight: bold; color: var(--primary); font-size: 1.4em; display: block; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
         
-        footer { text-align: center; padding: 30px; background: #001f44; color: white; margin-top: 40px; }
+        .attractions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 30px; }
+        .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1); transition: 0.3s; }
+        .card:hover { transform: translateY(-10px); }
+        .card img { width: 100%; height: 250px; object-fit: cover; }
+        .card-body { padding: 25px; }
+
+        .whatsapp-btn { position: fixed; bottom: 30px; left: 30px; background: #25d366; color: white; padding: 18px 30px; border-radius: 60px; text-decoration: none; font-weight: bold; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); z-index: 2000; display: flex; align-items: center; gap: 10px; transition: 0.3s; }
+        .whatsapp-btn:hover { transform: scale(1.05); background: #20ba5a; }
+        
+        footer { text-align: center; padding: 50px; background: #001f44; color: white; margin-top: 60px; }
     </style>
 </head>
 <body>
 
 <header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Chabad_Logo.svg/1200px-Chabad_Logo.svg.png" alt="חב''ד בולגריה" class="logo-bulgaria">
-    <h1>בית חב"ד פלובדיב</h1>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Chabad_Logo.svg/1200px-Chabad_Logo.svg.png" alt="סמל חב''ד" class="logo-bulgaria">
+    <h1>בית חב"ד פלובדיב - בולגריה</h1>
     <p>תחת מוסדות חב"ד בולגריה בראשות השליח הראשי הרב יוסף סלומון</p>
 </header>
 
 <nav>
     <a onclick="navigateTo('home')">דף הבית</a>
     <a onclick="navigateTo('rebbe')">הרבי ותורתו</a>
-    <a onclick="navigateTo('travel')">מדריך למטייל</a>
+    <a onclick="navigateTo('travel')">אטרקציות</a>
     <a onclick="navigateTo('history')">היסטוריה וקהילה</a>
-    <a onclick="navigateTo('reviews')">המלצות</a>
     <a onclick="navigateTo('shabbat')">שבת ואירוח</a>
 </nav>
 
 <div id="home" class="page-section" style="display: block;">
-    <h2>דבר השליח - הרב מענדי מנדלזון</h2>
+    <h2>שליחות של אור בלב פלובדיב</h2>
     <div class="monologue">
-        "כשאנחנו עומדים כאן, בלב פלובדיב, אחת הערים העתיקות ביותר בעולם, אנחנו חשים את משקל ההיסטוריה ואת עוצמת השליחות. הרבי מליובאוויטש לימד אותנו שאין פינה בעולם שהיא 'נידחת' או 'רחוקה' מדי עבור אור השכינה. השליחות שלנו כאן, יחד עם ריקי והילדים לוי ומוסיא, היא לא רק לנהל מוסד, אלא להיות הלב הפועם של היהדות עבור כל מי שנקלע לעיר הזו. בכל חיוך למטייל, בכל שיעור תורה לקהילה המקומית ובכל סעודת שבת, אנחנו זורעים זרעים של אור. אנו כאן כדי להזכיר לכל יהודי שגם בתוך בולגריה, הוא נמצא בבית."
+        "כשאנחנו פוסעים ברחובותיה העתיקים של פלובדיב, עיר שראתה אימפריות קמות ונופלות, אנחנו מרגישים את הנצחיות של הנשמה היהודית. הרבי מליובאוויטש הטיל עלינו אחריות כבדה אך מלאת זכות: להיות פנסים של חסד ואמונה בכל מקום אליו נגיע. כאן, בתוך השקט של בולגריה, משפחת מנדלזון – אני, ריקי והילדים היקרים לוי ומוסיא – פועלים מזה שנתיים להקים בית שהוא הרבה מעבר לקירות ובטון. זהו בית של נשמה, מקום בו כל יהודי, מכל רקע ובכל גיל, יכול להרגיש את הקשר החי שלו למסורת אבותיו. אנחנו כאן כדי להזכיר לכל אחד ואחת: אתם אף פעם לא לבד, יש לכם בית חם מחכה לכם כאן בלב פלובדיב."
     </div>
-    <p>בית חב"ד פלובדיב פועל מזה שנתיים בשיתוף פעולה הדוק עם המרכז היהודי בסופיה, ומעניק מענה רוחני וגשמי לכל דורש.</p>
-    <h3>מיקומנו בפלובדיב</h3>
-    <iframe style="width:100%; height:350px; border-radius:12px; border:none;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2958.337!2d24.74!3d42.14!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDLCsDA4JzI0LjAiTiAyNMKwNDQnMjQuMCJF!5e0!3m2!1she!2sbg!4v1614567890123!5m2!1she!2sbg" loading="lazy"></iframe>
+    <p>בית חב"ד פלובדיב מהווה מגדלור של יהדות עבור הקהילה המקומית ואלפי המטיילים הפוקדים את העיר מדי שנה. אנו מציעים שיעורי תורה, עזרה גשמית, תמיכה נפשית וסעודות שבת שזכורות לכל החיים.</p>
+    
+    <h3>מצאו אותנו על המפה:</h3>
+    <div style="border-radius:15px; overflow:hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        <iframe style="width:100%; height:400px; border:none;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d94657.34860000001!2d24.7421634!3d42.135407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a03be273174447%3A0x400a00b695139a0!2sPlovdiv%2C%20Bulgaria!5e0!3m2!1sen!2sil!4v1700000000000" loading="lazy"></iframe>
+    </div>
 </div>
 
 <div id="rebbe" class="page-section">
-    <div class="rebbe-box">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Menachem_Mendel_Schneerson.jpg" alt="הרבי" style="width:220px; border-radius:10px; margin-bottom:15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-        <h2>הרועה הנאמן - כ"ק אדמו"ר מליובאוויטש</h2>
-        <div style="font-style: italic; color: #001f44; max-width: 800px; margin: auto;">
-            "הרבי לימד אותנו להביט ביהודי לא לפי מה שהוא נראה כלפי חוץ, אלא לפי הנשמה הבוערת בקרבו. הוא לא ביקש מאיתנו ציות, אלא ביקש שנהפוך למנהיגים בעצמנו – שכל אחד מאיתנו יהיה פנס שמפיץ אור בסביבתו. המבט של הרבי חודר כל מחיצה, לוחש לכל אחד ואחת: 'יש בך כוחות אינסופיים, העולם מחכה למעשה הטוב שלך'."
+    <div class="rebbe-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Chabad-Lubavitch_Rebbe_Portrait.jpg" alt="כ''ק אדמו''ר מליובאוויטש" class="rebbe-img">
+        <h2>מנהיג הדור - כ"ק אדמו"ר מליובאוויטש</h2>
+        <div style="font-size: 1.15em; line-height: 2; color: #333; max-width: 850px; margin: auto; text-align: justify;">
+            "הרבי אינו רק מנהיג של דור, אלא מצפן לכל נשמה ונשמה. הוא לימד אותנו שאין דבר כזה 'יהודי רחוק'. כל יהודי הוא חלק בלתי נפרד מגוף אחד גדול, ובכל מקום בו הוא נמצא, הוא נושא עמו שליחות אלוקית אינסופית. הרבי שלח אותנו לעולם לא כדי לבנות בניינים, אלא כדי לבנות אנשים. הוא ביקש מאיתנו להפוך את העולם לדירה לו יתברך, על ידי הוספה במעשים טובים, בחיוך, באהבת ישראל ובגאווה יהודית בלתי מתפשרת. המבט שלו, מלא האמונה בכוחותינו, הוא המנוע המניע אותנו בכל יום מחדש."
         </div>
     </div>
 
-    <h3>פנינים וסיפורים מהקודש</h3>
+    <h3>סיפורי קודש ופנינים</h3>
     <div class="story-item">
-        <span class="story-title">ספירת היהלומים של הדור</span>
-        שאלו פעם את הרבי: "איך זה שאתה עומד שעות על גבי שעות, מחלק דולרים וברכות לאלפי אנשים, ואינך מתעייף?". הרבי השיב בחיוך שובה לב: "כשסופרים יהלומים, לא מתעייפים". עבור הרבי, כל אדם – ילד קטן או קשיש, דתי או כזה שאינו שומר מצוות עדיין – היה יהלום נדיר ויקר בכתרו של הקדוש ברוך הוא.
+        <span class="story-title">היהלומים של הרבי</span>
+        סיפר אחד החסידים שעמד שעות ארוכות בתור לקבלת דולר וברכה מהרבי. כשראה את הרבי עומד ללא הפוגה, שאל בתימהון: "רבי, איך אתה עומד כך שעות מבלי להתעייף?". הרבי הביט בו בעיניו הקדושות והשיב: "כשסופרים יהלומים, לא מתעייפים". עבור הרבי, כל יהודי ויהודייה שנכנסו לחדרו היו יהלומים נדירים ויקרים מאין כמותם.
     </div>
     <div class="story-item">
-        <span class="story-title">האלוקים שאני מכיר</span>
-        סטודנט צעיר הגיע ליחידות וטען בלהט: "אינני מאמין באלוקים!". הרבי הקשיב לו בסבלנות וענה ברוגע: "גם אני אינני מאמין באלוקים שבו אתה לא מאמין. האלוקים שבו אינך מאמין הוא דמיון וטעות. האלוקים שאני מכיר הוא אב רחמן, מקור החיים והאהבה, שברא אותך עם שליחות מיוחדת שרק אתה יכול למלא". הסטודנט יצא מהחדר עם נקודת מבט חדשה על חייו.
+        <span class="story-title">הסטודנט שחיפש את האמת</span>
+        סטודנט צעיר הגיע ליחידות וטען בפני הרבי שאינו מאמין בקיומו של בורא עולם. הרבי הקשיב לטענותיו המדעיות והפילוסופיות באורך רוח, ואז שאל אותו: "ומה אתה חושב שבורא עולם חושב עליך?". הסטודנט קפא במקומו. הוא הבין באותו רגע שהרבי לא מדבר אליו על פילוסופיה, אלא על קשר אישי ואוהב. הרבי המשיך ואמר: "גם אם אתה חושב שאינך מאמין בו, הוא מאמין בך בכל יום מחדש."
     </div>
 </div>
 
 <div id="travel" class="page-section">
-    <h2>אטרקציות ופניני תיירות בפלובדיב</h2>
-    <p>העיר פלובדיב היא מוזיאון פתוח של היסטוריה ותרבות. הנה המקומות המרכזיים שכדאי לבקר בהם:</p>
+    <h2>המדריך למטייל בפלובדיב</h2>
+    <p>פלובדיב היא עיר שמשלבת עבר מפואר עם הווה תוסס. הנה כמה אתרים שאסור לכם לפספס:</p>
     <div class="attractions-grid">
         <div class="card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Ancient_Theatre_Plovdiv_Bulgaria.jpg/500px-Ancient_Theatre_Plovdiv_Bulgaria.jpg" alt="תיאטרון">
-            <div style="padding:20px;">
-                <h3>התיאטרון האנטיקי</h3>
-                <p>תיאטרון רומי מרהיב מהמאה ה-2 לספירה. הוא נחשב לאחד האתרים הארכיאולוגיים החשובים בבולגריה ומשמש עד היום לבמות והופעות תחת כיפת השמיים.</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Ancient_Theatre_of_Philippopolis_Plovdiv_Bulgaria.jpg/800px-Ancient_Theatre_of_Philippopolis_Plovdiv_Bulgaria.jpg" alt="התיאטרון הרומי">
+            <div class="card-body">
+                <h3>התיאטרון הרומי</h3>
+                <p>אחד התיאטראות השמורים ביותר בעולם. הוא נבנה במאה ה-2 לספירה ומשמש עד היום לבמות והופעות מרגשות תחת כיפת השמיים.</p>
             </div>
         </div>
         <div class="card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Plovdiv_Old_Town_Street.jpg/500px-Plovdiv_Old_Town_Street.jpg" alt="עיר עתיקה">
-            <div style="padding:20px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Plovdiv_Old_Town_Houses.jpg/800px-Plovdiv_Old_Town_Houses.jpg" alt="העיר העתיקה">
+            <div class="card-body">
                 <h3>סמטאות העיר העתיקה</h3>
-                <p>טיול בעיר העתיקה הוא מסע בזמן. הבתים הצבעוניים בסגנון התחייה הבולגרית, הגלריות והמסעדות הנסתרות בין האבנים העתיקות יוצרים אווירה קסומה.</p>
+                <p>שיטוט בין בתים צבעוניים בסגנון התחייה הבולגרית, גלריות אמנות קסומות ואבני מדרכה שמספרות היסטוריה של אלפי שנים.</p>
             </div>
         </div>
     </div>
@@ -104,37 +112,28 @@
 <div id="history" class="page-section">
     <h2>היסטוריה וקהילה יהודית</h2>
     <div class="monologue">
-        "הקהילה היהודית בפלובדיב (פיליפופולי ההיסטורית) היא מהעתיקות והמפוארות ביותר בבלקן. לאורך הדורות היא היוותה מרכז רוחני ותרבותי, אך רגע השיא של הקהילה היה בשנת 1943. בתוך האופל של מלחמת העולם השנייה, עמדו תושבי העיר, יחד עם ראשי הכנסייה, כחומה בצורה ומנעו את גירוש יהודי העיר. זהו סיפור של גבורה ושל חסד שנחקק בדפי ההיסטוריה של פלובדיב."
-    </div>
-    <p>כיום, הקהילה חווה התעוררות מחודשת. מאז הגעתנו לפני כשנתיים, הוקמו שיעורי תורה קבועים, פעילויות חגים ותפילות המאחדות את יהודי המקום עם המטיילים הפוקדים את העיר.</p>
-</div>
-
-<div id="reviews" class="page-section">
-    <h2>מה המטיילים מספרים?</h2>
-    <div class="story-item">
-        <strong>משפחת מזרחי, תל אביב:</strong> "הגענו לפלובדיב עם המון חששות לגבי אוכל וכשרות, ומצאנו בבית חב"ד הרבה יותר מזה. הרב מענדי וריקי אירחו אותנו בחום שלא פגשנו בשום מקום אחר. הילדים הרגישו בבית, ושולחן השבת היה חוויה רוחנית של ממש."
-    </div>
-    <div class="story-item">
-        <strong>נועם, תרמילאי:</strong> "טיילתי בהרבה בתי חב"ד בעולם, אבל פלובדיב זה משהו מיוחד. השקט, השיחות העמוקות עם הרב לתוך הלילה, והעובדה שיש תמיד אוזן קשבת – זה מה שנתן לי כוח להמשיך בטיול."
+        "פלובדיב, או 'פיליפופולי' כפי שנקראה בעבר, היא ערש יהדות בולגריה. הקהילה היהודית כאן ידעה ימים של תפארת ויצירה, אך הרגע המרגש ביותר נרשם במלחמת העולם השנייה. בזכות אומץ הלב של תושבי העיר, מנהיגיה הדתיים והפוליטיים, נמנע גירוש היהודים ברגע האחרון ממש. מאז הגעתנו לפני כשנתיים, אנחנו זוכים לראות את הניצוץ נדלק מחדש. הקהילה המקומית, ששורשיה כאן עמוקים, מתאחדת סביב בית חב"ד לפעילויות של תורה, חסד ואמונה."
     </div>
 </div>
 
 <div id="shabbat" class="page-section">
     <h2>שבת קודש בבית חב"ד</h2>
-    <p>אין דבר שמשתווה לשבת בלב בולגריה. אנו מזמינים אתכם להצטרף אלינו לסעודות שבת עשירות, מלאות בזמירות, דברי תורה ואווירה משפחתית חמה.</p>
-    <div style="background: #eef; padding: 20px; border-radius: 8px; margin: 20px 0;">
-        <p><strong>עלות השתתפות:</strong> 50$ למבוגר (הכנסות קודש לכיסוי הוצאות האירוח).</p>
-        <p><strong>שימו לב:</strong> יש להירשם מראש עד יום חמישי בצהריים כדי שנוכל להיערך כראוי.</p>
+    <p>אין דבר שמשתווה לשבת בלב פלובדיב. אנו מזמינים אתכם להשאיר את המרוץ של השבוע מאחור ולהצטרף לסעודות שבת עשירות, מלאות בזמירות, דברי תורה ואווירה יהודית חמה ומרוממת.</p>
+    <div style="background: #fdfae6; padding: 30px; border-radius: 15px; margin: 30px 0; border: 1px dashed var(--accent);">
+        <p><strong>עלות השתתפות:</strong> 50$ למבוגר (הכנסות קודש להמשך פעילות הבית).</p>
+        <p><strong>הרשמה:</strong> יש לתאם מראש עד יום חמישי כדי שנוכל להיערך כראוי.</p>
     </div>
     <div style="text-align:center;">
-        <a href="tel:0587679770" style="display:inline-block; background:var(--accent); color:var(--primary); padding:15px 30px; text-decoration:none; border-radius:50px; font-weight:bold;">להזמנות: 058-7679770</a>
+        <a href="tel:0587679770" style="display:inline-block; background:var(--primary); color:white; padding:18px 40px; text-decoration:none; border-radius:50px; font-weight:bold; font-size: 1.1em;">להזמנות מקום: 058-7679770</a>
     </div>
 </div>
 
-<a href="https://wa.me/972587679770" class="whatsapp-btn">ווטסאפ לבית חב"ד</a>
+<a href="https://wa.me/972587679770" class="whatsapp-btn">
+    <span>ווטסאפ לבית חב"ד</span>
+</a>
 
 <footer>
-    <p>©   כל הזכויות שמורות לבית חב"ד פלובדיב | מפיצים אור בבולגריה |</p>
+    <p>©  כל הזכויות שמורות לבית חב"ד פלובדיב |   </p>
 </footer>
 
 <script>
@@ -157,4 +156,4 @@
 </script>
 
 </body>
-</html>
+    </html>

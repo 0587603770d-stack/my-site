@@ -8,104 +8,61 @@
     <style>
         :root { --primary: #002c5f; --accent: #d4af37; --bg: #f8f9fa; }
         body { font-family: 'Assistant', 'Heebo', sans-serif; margin: 0; padding: 0; background-color: var(--bg); color: #333; line-height: 1.8; }
-        
         header { background: linear-gradient(135deg, #001f44 0%, #003d85 100%); color: white; padding: 40px 20px; text-align: center; border-bottom: 5px solid var(--accent); }
         .logo-main { height: 160px; width: auto; margin-bottom: 15px; background: white; padding: 10px; border-radius: 50%; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
-        
         nav { background: white; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 15px rgba(0,0,0,0.1); }
         nav a { color: var(--primary); margin: 0 10px; text-decoration: none; font-weight: 700; cursor: pointer; padding: 10px 15px; border-radius: 8px; transition: 0.3s; }
         nav a:hover { background-color: #f0f4f8; color: var(--accent); }
-
         .page-section { display: none; padding: 50px 25px; max-width: 1000px; margin: 30px auto; background: white; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
-        
         h2 { color: var(--primary); border-bottom: 3px solid var(--accent); padding-bottom: 15px; font-size: 2.2em; }
         .monologue { background: #f1f5f9; border-right: 10px solid var(--accent); padding: 40px; font-style: italic; margin: 35px 0; border-radius: 0 15px 15px 0; font-size: 1.25em; color: #002c5f; line-height: 2.1; text-align: justify; }
-        
-        .rebbe-card { background: #fffcf0; border: 2px solid var(--accent); padding: 45px; border-radius: 25px; text-align: center; margin-bottom: 45px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .rebbe-card { background: #fffcf0; border: 2px solid var(--accent); padding: 45px; border-radius: 25px; text-align: center; margin-bottom: 45px; }
         .rebbe-img-uploaded { width: 350px; max-width: 90%; height: auto; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.25); border: 5px solid white; }
-        
-        .story-item { background: #ffffff; border: 1px solid #eee; border-right: 8px solid var(--primary); padding: 35px; margin-bottom: 35px; border-radius: 0 15px 15px 0; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
-        .story-title { font-weight: bold; color: var(--primary); font-size: 1.5em; display: block; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-        
-        .whatsapp-btn { position: fixed; bottom: 30px; left: 30px; background: #25d366; color: white; padding: 18px 35px; border-radius: 60px; text-decoration: none; font-weight: bold; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); z-index: 2000; font-size: 1.1em; transition: 0.3s; }
-        
+        .whatsapp-btn { position: fixed; bottom: 30px; left: 30px; background: #25d366; color: white; padding: 18px 35px; border-radius: 60px; text-decoration: none; font-weight: bold; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); z-index: 2000; font-size: 1.1em; }
         footer { text-align: center; padding: 60px; background: #001f44; color: white; margin-top: 60px; border-top: 5px solid var(--accent); }
     </style>
 </head>
 <body>
 
 <header>
-    <img src="Screenshot_20251228_200044_Chrome.jpg" alt="סמל חב''ד בולגריה" class="logo-main">
+    <img src="Screenshot_20251228_200044_Chrome.jpg" alt="סמל חב''ד" class="logo-main">
     <h1>בית חב"ד פלובדיב</h1>
-    <p>תחת מוסדות חב"ד בולגריה | השליח הראשי הרב יוסף סלומון - סופיה</p>
+    <p>בהנהלת השליח הרב מענדי מנדלזון</p>
 </header>
 
 <nav>
     <a onclick="navigateTo('home')">דף הבית</a>
     <a onclick="navigateTo('rebbe')">הרבי ותורתו</a>
     <a onclick="navigateTo('travel')">מדריך למטייל</a>
-    <a onclick="navigateTo('history')">היסטוריה וקהילה</a>
     <a onclick="navigateTo('shabbat')">שבת ואירוח</a>
 </nav>
 
 <div id="home" class="page-section" style="display: block;">
-    <h2>שליחות של אור בלב פלובדיב</h2>
+    <h2>דבר השליח</h2>
     <div class="monologue">
-        "כשאנחנו פוסעים בסמטאות המרוצפות של פלובדיב, אנחנו חשים בלבנו את השליחות הבוערת. הרבי מליובאוויטש לימד אותנו שאין פינה בעולם שהיא חשוכה מדי מכדי להאיר, ואין יהודי שהוא רחוק מדי מכדי להתקרב. כאן בבולגריה, משפחת מנדלזון פועלים להקים בית של אמונה, חסד ושמחה יהודית פורצת גבולות. אנו כאן כדי להיות הכתובת שלכם לכל צורך רוחני או גשמי, להזכיר לכל נשמה ונשמה שהיא יהלום יקר בכתרו של מלך."
+        "כשאנחנו פוסעים בסמטאותיה המרוצפות של פלובדיב, עיר שראתה אימפריות קמות ונופלות לאורך אלפי שנים, אנחנו חשים בלבנו את השליחות הבוערת שהפקיד בידינו הרבי מליובאוויטש. שמי הוא <strong>הרב מענדי מנדלזון</strong>, ויחד עם רעייתי <strong>ריקי</strong> וילדינו היקרים <strong>לוי ומוסיא</strong>, זכינו לקבוע כאן את ביתנו בשליחות של אור ואהבת ישראל. 
+        <br><br>
+        הרבי לימד אותנו שאין פינה בעולם שהיא חשוכה מדי מכדי להאיר, ואין יהודי שהוא רחוק מדי מכדי להתקרב לצור מחצבתו. כאן, בלב בולגריה, משפחתנו פועלת להקים בית שהוא הרבה מעבר לקירות ובטון; זהו בית של נשמה, מקום שבו כל יהודי יכול להרגיש את הקשר החי והנצחי שלו למסורת אבותיו. אנו רואים בכל אדם שמגיע אלינו יהלום יקר, כפי שהרבי נהג לומר: 'כשסופרים יהלומים, לא מתעייפים'. המטרה שלנו היא להיות עבורכם הכתובת לכל צורך רוחני או גשמי, להזכיר לכל נשמה ונשמה שהיא חלק בלתי נפרד מאור אינסוף. אנחנו מחכים לכם בלב פתוח."
     </div>
-    <p>בית חב"ד פלובדיב מציע שיעורי תורה, עזרה לזולת, ואווירה יהודית חמה לכל יהודי המבקר בעיר.</p>
 </div>
 
 <div id="rebbe" class="page-section">
     <div class="rebbe-card">
         <img src="IMG-20251229-WA0016.jpg" alt="כ''ק אדמו''ר מליובאוויטש" class="rebbe-img-uploaded">
         <h2>מנהיג דורנו - כ"ק אדמו"ר מליובאוויטש</h2>
-        <p>המבט שלו חודר דרך המחיצות, מעניק לנו כוח לעמוד איתן מול כל אתגר.</p>
-    </div>
-    <h3>סיפורי קודש</h3>
-    <div class="story-item">
-        <span class="story-title">היהלומים של הרבי</span>
-        "כשסופרים יהלומים, לא מתעייפים". עבור הרבי, כל יהודי ויהודייה הם יהלומים יקרים שאין להם תחליף.
-    </div>
-    <div class="story-item">
-        <span class="story-title">האמונה בכל אדם</span>
-        הרבי לימד אותנו שגם אם אדם חושב שהוא אינו מאמין, בורא עולם מאמין בו בכל יום מחדש ומעניק לו כוחות להוסיף טוב בעולם.
-    </div>
-</div>
-
-<div id="travel" class="page-section">
-    <h2>המדריך למטייל היהודי</h2>
-    <p>פלובדיב היא עיר עתיקה ומיוחדת במינה. הנה אתרים מומלצים:</p>
-    <ul>
-        <li><strong>התיאטרון הרומי:</strong> שרידים מרהיבים מהמאה ה-2 לספירה.</li>
-        <li><strong>העיר העתיקה (Old Town):</strong> סמטאות ציוריות ובתי עץ היסטוריים.</li>
-        <li><strong>הגן המרכזי:</strong> מקום נעים לטיול רגוע בלב העיר.</li>
-    </ul>
-</div>
-
-<div id="history" class="page-section">
-    <h2>היסטוריה וגבורה</h2>
-    <div class="monologue">
-        "קהילת פלובדיב התפרסמה במיוחד בזכות סיפור הצלת יהודי בולגריה ב-1943. תושבי העיר וראשיה עמדו כחומה בצורה ומנעו את גירוש היהודים. אנחנו כאן כדי להמשיך את המורשת המפוארת הזו."
+        <p>מקור הכוח וההשראה לשליחותנו בפלובדיב.</p>
     </div>
 </div>
 
 <div id="shabbat" class="page-section">
-    <h2>שבת קודש - טעם של בית</h2>
-    <p>אנו מזמינים אתכם לסעודות שבת מרוממות מלאות בשירה ודברי תורה.</p>
-    <div style="background: #fdfae6; padding: 35px; border-radius: 20px; margin: 35px 0; border: 2px dashed var(--accent);">
-        <p><strong>השתתפות:</strong> 50$ לאדם (לכיסוי הוצאות האירוח).</p>
-        <p><strong>הרשמה:</strong> חובה להירשם עד יום חמישי בצהריים.</p>
-    </div>
-    <div style="text-align:center;">
-        <a href="tel:0587679770" style="display:inline-block; background:var(--primary); color:white; padding:20px 45px; text-decoration:none; border-radius:60px; font-weight:bold;">להזמנות: 058-7679770</a>
-    </div>
+    <h2>שבת קודש בבית חב"ד</h2>
+    <p>סעודות שבת חמות ומרוממות עם משפחת מנדלזון. לתיאום והרשמה מראש: 058-7679770</p>
 </div>
 
 <a href="https://wa.me/972587679770" class="whatsapp-btn">ווטסאפ לבית חב"ד</a>
 
 <footer>
-    <p>© כל הזכויות שמורות לבית חב"ד פלובדיב | מפיצים אור בבולגריה | ארבעים שנה לה’ טבת דידן נצח  </p>
+    <p>© כל הזכויות שמורות לבית חב"ד פלובדיב | השליח הרב מענדי מנדלזון | </p>
 </footer>
 
 <script>

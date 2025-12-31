@@ -14,33 +14,29 @@
         .slogan { font-size: 1.5rem; color: #d4af37; font-weight: bold; margin-top: 10px; }
         
         nav { background: white; border-bottom: 2px solid #e2e8f0; padding: 10px; text-align: center; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: center; flex-wrap: wrap; }
-        nav a { margin: 5px 12px; text-decoration: none; color: #05162d; font-weight: bold; cursor: pointer; padding: 8px; transition: 0.3s; }
+        nav a { margin: 5px 12px; text-decoration: none; color: #05162d; font-weight: bold; cursor: pointer; padding: 8px; transition: 0.3s; border-bottom: 3px solid transparent; }
         nav a.active { color: #d4af37; border-bottom: 3px solid #d4af37; }
         
-        .container { max-width: 950px; margin: 30px auto; padding: 0 20px; }
+        .container { max-width: 950px; margin: 30px auto; padding: 0 20px; min-height: 600px; }
         .section { display: none; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .active-section { display: block; animation: fadeIn 0.5s; }
+        .active-section { display: block !important; animation: fadeIn 0.5s; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         
-        h2 { font-family: 'Heebo'; color: #05162d; border-right: 5px solid #d4af37; padding-right: 15px; margin-top: 30px; }
+        h2 { font-family: 'Heebo'; color: #05162d; border-right: 5px solid #d4af37; padding-right: 15px; margin-top: 0; }
         .text-content { font-size: 1.15rem; text-align: justify; white-space: pre-line; }
 
-        /* עיצוב סיפורי הרבי */
         .story-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
-        .story-card { background: #f0f4f8; border-top: 4px solid #d4af37; padding: 20px; border-radius: 10px; font-size: 1rem; }
-        .story-card h4 { margin-top: 0; color: #05162d; border-bottom: 1px solid #cbd5e0; padding-bottom: 5px; }
-
-        /* עיצוב אטרקציות */
+        .story-card { background: #f0f4f8; border-top: 4px solid #d4af37; padding: 20px; border-radius: 10px; }
         .attr-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 20px; }
-        .attr-card { border: 1px solid #e2e8f0; padding: 15px; border-radius: 12px; background: #fff; transition: 0.3s; }
-        .attr-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .attr-card strong { color: #05162d; display: block; margin-bottom: 5px; font-size: 1.2rem; }
+        .attr-card { border: 1px solid #e2e8f0; padding: 15px; border-radius: 12px; background: #fff; }
 
         .rebbe-img { width: 100%; max-width: 300px; border-radius: 15px; display: block; margin: 25px auto; border: 3px solid #e2e8f0; }
-        .btn { background: #05162d; color: white; border: none; padding: 15px 30px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; font-size: 1.1rem; margin-top: 10px; }
+        .btn { background: #05162d; color: white; border: none; padding: 15px 30px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; font-size: 1.1rem; }
         
         footer { text-align: center; padding: 30px; font-size: 1.1rem; color: #4a5568; background: #edf2f7; border-top: 1px solid #e2e8f0; margin-top: 50px; }
         .whatsapp { position: fixed; bottom: 20px; left: 20px; background: #25d366; color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; z-index: 2000; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        
+        input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
     </style>
 </head>
 <body>
@@ -52,12 +48,12 @@
 </header>
 
 <nav id="mainNav">
-    <a onclick="openTab('home', this)" class="active">בית</a>
-    <a onclick="openTab('rebbe', this)">נשיא הדור</a>
-    <a onclick="openTab('history', this)">היסטוריה</a>
-    <a onclick="openTab('travelers', this)">אטרקציות ומידע</a>
-    <a onclick="openTab('shabbat', this)">הרשמה לשבת</a>
-    <a onclick="openTab('contact', this)">כתובת ותרומה</a>
+    <a onclick="openTab('home')" id="nav-home" class="active">בית</a>
+    <a onclick="openTab('rebbe')" id="nav-rebbe">נשיא הדור</a>
+    <a onclick="openTab('history')" id="nav-history">היסטוריה</a>
+    <a onclick="openTab('travelers')" id="nav-travelers">אטרקציות ומידע</a>
+    <a onclick="openTab('shabbat')" id="nav-shabbat">הרשמה לשבת</a>
+    <a onclick="openTab('contact')" id="nav-contact">כתובת ותרומה</a>
 </nav>
 
 <div class="container">
@@ -67,9 +63,9 @@
         <div class="text-content">
             שלום וברוכים הבאים לבית חב"ד פלובדיב! שמי הוא הרב מענדי מנדלזון, ויחד עם רעייתי המסורה הרבנית ריקי וילדינו האהובים לוי ומוסיא, אנו זוכים לשרת כשלוחיו של הרבי מליובאוויטש כאן בעיר העתיקה והיפה ביותר בבולגריה. פלובדיב היא עיר עם נשמה, וכך גם הבית שלנו.
 
-            עבורנו, השליחות היא לא עבודה - היא דרך חיים. כשאנו פותחים את דלתנו, אנו לא רק מציעים מקום לאכול או להתפלל, אנו מציעים משפחה. הרבנית ריקי משקיעה את כל הלב והנשמה בסעודות השבת המפורסמות שלנו, שילוב של טעמים ביתיים עם אווירה של קדושה. הילדים שלנו, לוי ומוסיא, הם השלוחים הצעירים והחיוך שלהם הוא הדבר הראשון שמקבל את פני האורחים. הם גדלים מתוך הבנה שכל יהודי הוא יהלום, בדיוק כפי שלימד אותנו הרבי.
+            עבורנו, השליחות היא דרך חיים. כשאנו פותחים את דלתנו, אנו מציעים משפחה. הרבנית ריקי משקיעה את כל הלב בסעודות השבת, שילוב של טעמים ביתיים עם אווירה של קדושה. הילדים שלנו, לוי ומוסיא, הם השלוחים הצעירים והחיוך שלהם הוא הדבר הראשון שמקבל את פני האורחים. הם גדלים מתוך הבנה שכל יהודי הוא יהלום.
 
-            בפלובדיב יש קסם מיוחד, שילוב של היסטוריה עתיקה עם חיות מודרנית. בתוך כל זה, בית חב"ד מהווה אי של יציבות רוחנית. בין אם אתם מטיילים אחרי צבא שמחפשים אוזן קשבת, אנשי עסקים בנסיעה לחוצה, או סטודנטים לרפואה הלומדים בעיר - דעו שמרגע שפסעתם פנימה, אתם בבית. אנחנו כאן כדי לסייע בכל דבר: החל מארוחה כשרה וחמה, דרך עצה טובה ולימוד משותף, ועד לעזרה גשמית בכל צורך שיתעורר. המטרה שלנו היא שכל יהודי בפלובדיב ירגיש גאה ביהדותו וידע שיש לו מקום בטוח ואוהב שתמיד מחכה לו. בואו בשלום, הבית שלנו הוא הבית שלכם.
+            בפלובדיב יש קסם מיוחד, שילוב של היסטוריה עתיקה עם חיות מודרנית. בתוך כל זה, בית חב"ד מהווה אי של יציבות רוחנית. בין אם אתם מטיילים אחרי צבא, אנשי עסקים, או סטודנטים - דעו שמרגע שפסעתם פנימה, אתם בבית. אנחנו כאן לסייע בכל דבר: מארוחה כשרה וחמה, דרך עצה טובה ועד לעזרה גשמית בכל צורך. המטרה שלנו היא שכל יהודי בפלובדיב ירגיש גאה ביהדותו וידע שיש לו מקום בטוח ואוהב שתמיד מחכה לו. בואו בשלום, הבית שלנו הוא הבית שלכם.
         </div>
     </div>
 
@@ -77,48 +73,92 @@
         <h2>נשיא הדור - הרבי מליובאוויטש</h2>
         <div class="text-content">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Menachem_Mendel_Schneerson.jpg/330px-Menachem_Mendel_Schneerson.jpg" class="rebbe-img" alt="הרבי">
-            הרבי מליובאוויטש, רבי מנחם מענדל שניאורסון, הוא הדמות המרכזית שהפיחה רוח חיים חדשה בעם היהודי לאחר חורבן השואה. עבורנו, כל פעולה בבית חב"ד יונקת מהחזון האינסופי שלו - חזון של אהבת ישראל ללא תנאי והכנה של העולם כולו לגאולה השלימה.
+            הרבי מליובאוויטש, רבי מנחם מענדל שניאורסון, הוא הדמות שהפיחה רוח חיים חדשה בעם היהודי לאחר השואה. עבורנו, כל פעולה בבית חב"ד יונקת מהחזון האינסופי שלו - אהבת ישראל ללא תנאי והכנה של העולם לגאולה.
 
-            הרבי לא ראה קהילות, הוא ראה נשמות. הוא שלח אלפי שלוחים לכל פינה בעולם לא כדי לבנות בניינים, אלא כדי להדליק לבבות. בשיחותיו הדגיש הרבי תמיד את הכוח של המעשה הקטן - מצווה אחת, חיוך אחד, עזרה קטנה - שיכולים לשנות את הגורל של אדם ושל עולם שלם. הרבי לימד אותנו שאין יהודי רחוק; כל יהודי הוא קרוב לאביו שבשמיים, והתפקיד שלנו הוא רק להזכיר לו את הקשר הזה. המהפכה השקטה שהנהיג הרבי הפכה את חב"ד לשם נרדף לבית חם עבור כל יהודי בעולם, וגם כאן בפלובדיב אנו משתדלים לצעוד בנתיב שהתווה לנו, מתוך מסירות נפש ושמחה אמיתית.
+            הרבי לא ראה קהילות, הוא ראה נשמות. הוא שלח שלוחים לכל פינה בעולם כדי להדליק לבבות. בשיחותיו הדגיש את הכוח של המעשה הקטן - מצווה אחת או חיוך אחד שיכולים לשנות עולם שלם. הרבי לימד אותנו שאין יהודי רחוק; כולנו קרובים לאבינו שבשמיים. המהפכה שהנהיג הפכה את חב"ד לבית חם עבור כל יהודי בעולם, וגם כאן בפלובדיב אנו צועדים בנתיב שהתווה לנו בשמחה.
         </div>
-
-        <h3>6 ניצוצות - סיפורים על הרבי</h3>
+        <h3>סיפורים על הרבי</h3>
         <div class="story-grid">
-            <div class="story-card">
-                <h4>1. יהלום יקר</h4>
-                <p>כאשר שאלו את הרבי איך יש לו כוח לעמוד שעות ולברך אלפי אנשים, השיב: "כשסופרים יהלומים, לא מתעייפים". כל יהודי בעיניו היה אוצר נדיר.</p>
-            </div>
-            <div class="story-card">
-                <h4>2. פנס אחד קטן</h4>
-                <p>הרבי הגדיר את תפקיד השליח כ"מדליק פנסים". השליח לא יוצר את האור, הוא רק מקרב את השלהבת כדי שהנשמה תאיר בעצמה.</p>
-            </div>
-            <div class="story-card">
-                <h4>3. דאגה למרחקים</h4>
-                <p>מסופר על יהודי שהיה תקוע באי נידח. הרבי דאג לשלוח אליו מצה ושמורה לפסח במסירה אישית, כי "אף יהודי לא נשאר מאחור".</p>
-            </div>
-            <div class="story-card">
-                <h4>4. כוחו של חיוך</h4>
-                <p>אדם שבור נפגש עם הרבי. הרבי הביט בו בחיוך כה עמוק, שהאיש העיד: "באותו רגע הרגשתי שכל צרותיי נעלמו באהבה שלו".</p>
-            </div>
-            <div class="story-card">
-                <h4>5. מנהיגות של שליחות</h4>
-                <p>הרבי מעולם לא יצא לחופשה. הוא האמין שכל רגע בחיים הוא הזדמנות לעשות טוב, וזמנו הוקדש כולו לכלל ישראל.</p>
-            </div>
-            <div class="story-card">
-                <h4>6. אהבת ישראל</h4>
-                <p>פעם הגיע אדם שהתנגד לדרכו של הרבי. הרבי קיבל אותו בכבוד עצום ואמר: "המכנה המשותף בינינו - היותנו בנים למקום - חזק מכל דעה".</p>
-            </div>
+            <div class="story-card"><h4>יהלום יקר</h4><p>"כשסופרים יהלומים, לא מתעייפים". כך השיב הרבי על שאלת כוחו לברך אלפים.</p></div>
+            <div class="story-card"><h4>מדליק פנסים</h4><p>השליח לא יוצר את האור, הוא רק מקרב את השלהבת כדי שהנשמה תאיר בעצמה.</p></div>
+            <div class="story-card"><h4>אף אחד לא נשאר</h4><p>גם באי נידח, הרבי דאג שיהודי יקבל מצה שמורה לפסח.</p></div>
+            <div class="story-card"><h4>כוח החיוך</h4><p>חיוכו של הרבי נתן כוח לאנשים שבורים לקום ולהתחיל מחדש.</p></div>
+            <div class="story-card"><h4>ללא הפסקה</h4><p>הרבי הקדיש כל רגע מחייו לטובת הכלל ללא יום חופשה אחד.</p></div>
+            <div class="story-card"><h4>המכנה המשותף</h4><p>אהבת ישראל של הרבי גברה על כל דעה או מחלוקת פוליטית.</p></div>
+        </div>
+    </div>
+
+    <div id="history" class="section">
+        <h2>היסטוריה וגבורה</h2>
+        <div class="text-content">
+            קהילת פלובדיב היא מהעתיקות והמפוארות בבלקן. סיפור הגבורה של יהודי בולגריה במלחמת העולם השנייה הוא מופת להשגחה פרטית. ב-1943, תושבי העיר ומנהיגיה עמדו על פסי הרכבת ומנעו את הגירוש. אנו ממשיכים את שרשרת הדורות הזו בגאווה יהודית.
         </div>
     </div>
 
     <div id="travelers" class="section">
-        <h2>אטרקציות מרכזיות בפלובדיב</h2>
+        <h2>אטרקציות בפלובדיב</h2>
         <div class="attr-grid">
-            <div class="attr-card"><strong>🏛️ האמפיתיאטרון הרומי</strong>אחד השמורים בעולם, ממוקם בלב העיר העתיקה ומציע נוף מרהיב.</div>
-            <div class="attr-card"><strong>🏡 העיר העתיקה (Old Town)</strong>סמטאות ציוריות, בתי מוזיאון וארכיטקטורה בולגרית מסורתית.</div>
-            <div class="attr-card"><strong>🕍 בית הכנסת "ציון"</strong>בית כנסת עתיק ויפהפה, עדות חיה לקהילה המפוארת של פלובדיב.</div>
-            <div class="attr-card"><strong>🚶 המדרחוב הארוך</strong>מדרחוב הקניות הארוך ביותר באירופה, מלא בחנויות, בתי קפה ואווירה.</div>
-            <div class="attr-card"><strong>⛲ המזרקות המזמרות</strong>מופע מים, אור ומוזיקה מדהים בפארק המרכזי (בימי הקיץ).</div>
-            <div class="attr-card"><strong>🗿 גבעת אליושה</strong>תצפית פנורמית על כל העיר מפסגת אחת הגבעות המפורסמות.</div>
+            <div class="attr-card"><strong>🏛️ האמפיתיאטרון הרומי</strong> אתר היסטורי מרהיב ביופיו.</div>
+            <div class="attr-card"><strong>🏡 העיר העתיקה</strong> סמטאות ציוריות ואווירה של פעם.</div>
+            <div class="attr-card"><strong>🕍 בית הכנסת ציון</strong> מרכז רוחני היסטורי משוחזר.</div>
+            <div class="attr-card"><strong>🚶 המדרחוב הארוך</strong> קניות ובילוי במדרחוב הארוך באירופה.</div>
+            <div class="attr-card"><strong> Fountain המזרקות</strong> מופע מים ומוזיקה מרהיב.</div>
+            <div class="attr-card"><strong>🗿 גבעת אליושה</strong> תצפית פנורמית על כל האזור.</div>
         </div>
-        <p style="margin-top:2
+    </div>
+
+    <div id="shabbat" class="section">
+        <h2>הרשמה לשבת</h2>
+        <input type="text" id="name" placeholder="שם מלא">
+        <input type="number" id="guests" placeholder="מספר סועדים">
+        <input type="date" id="date">
+        <button class="btn" onclick="sendShabbat()">הרשמה בווטסאפ</button>
+    </div>
+
+    <div id="contact" class="section">
+        <h2>צור קשר ותרומה</h2>
+        <p>נמצאים במרחק הליכה מהמרכז. נשמח לראותכם!</p>
+        <div class="donate-box">
+            <a href="https://bit.ly/3TZMKwq" class="donate-btn" style="color: gold; font-weight: bold; text-decoration: none; font-size: 1.5rem;">לתרומה מאובטחת לחצו כאן</a>
+        </div>
+    </div>
+
+</div>
+
+<a href="https://wa.me/972587679770" class="whatsapp">ווטסאפ לבית חב"ד</a>
+
+<footer>בית חב"ד פלובדיב | הבית שלך בפלובדיב</footer>
+
+<script>
+    function openTab(tabId) {
+        // הסתרת כל הדפים
+        const sections = document.getElementsByClassName("section");
+        for (let i = 0; i < sections.length; i++) {
+            sections[i].classList.remove("active-section");
+        }
+        
+        // הסרת עיצוב מהתפריט
+        const navLinks = document.querySelectorAll("nav a");
+        navLinks.forEach(link => link.classList.remove("active"));
+        
+        // הצגת הדף הנבחר
+        document.getElementById(tabId).classList.add("active-section");
+        
+        // סימון הקישור בתפריט
+        document.getElementById('nav-' + tabId).classList.add("active");
+        
+        // גלילה לראש הדף
+        window.scrollTo(0, 0);
+    }
+
+    function sendShabbat() {
+        const name = document.getElementById('name').value;
+        const guests = document.getElementById('guests').value;
+        const date = document.getElementById('date').value;
+        const text = `שלום הרב מענדי, אשמח להירשם לשבת בתאריך ${date}. שם: ${name}, מספר סועדים: ${guests}`;
+        window.location.href = "https://wa.me/972587679770?text=" + encodeURIComponent(text);
+    }
+</script>
+
+</body>
+</html>

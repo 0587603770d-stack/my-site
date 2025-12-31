@@ -4,66 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>בית חב"ד פלובדיב - הבית שלך בפלובדיב</title>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&family=Heebo:wght@800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Heebo:wght@700;800&display=swap" rel="stylesheet">
     <style>
-        :root { --dark-blue: #05162d; --gold: #d4af37; --light-bg: #f4f7f9; }
-        body { font-family: 'Assistant', sans-serif; margin: 0; background-color: var(--light-bg); color: #1a202c; line-height: 1.8; text-align: right; }
+        :root { --dark-blue: #05162d; --gold: #d4af37; --light-bg: #f8fafc; }
+        body { font-family: 'Assistant', sans-serif; margin: 0; background-color: var(--light-bg); color: #2d3748; line-height: 1.6; text-align: right; font-size: 16px; }
         
-        header { background: var(--dark-blue); color: white; padding: 40px 20px; text-align: center; }
-        .logo-container { width: 100%; max-width: 250px; margin: 0 auto 20px; }
-        .logo-container img { width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-        h1 { font-family: 'Heebo'; font-size: 3rem; margin: 0; }
-        .slogan { font-size: 1.6rem; color: var(--gold); font-weight: bold; margin-top: 10px; }
+        header { background: var(--dark-blue); color: white; padding: 20px; text-align: center; }
+        .logo-container { width: 90px; margin: 0 auto 10px; }
+        .logo-container img { width: 100%; height: auto; display: block; border-radius: 5px; }
+        h1 { font-family: 'Heebo'; font-size: 1.8rem; margin: 5px 0; }
+        .slogan { font-size: 1.1rem; color: var(--gold); font-weight: 600; }
         
-        nav { background: white; border-bottom: 2px solid #e2e8f0; padding: 10px; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        nav button { background: none; border: none; margin: 5px 12px; font-size: 1.15rem; font-weight: bold; color: var(--dark-blue); cursor: pointer; padding: 10px 15px; transition: 0.3s; border-bottom: 3px solid transparent; }
-        nav button.active { color: var(--gold); border-bottom: 3px solid var(--gold); }
+        nav { background: white; border-bottom: 1px solid #e2e8f0; padding: 5px; text-align: center; position: sticky; top: 0; z-index: 1000; }
+        nav button { background: none; border: none; margin: 2px 8px; font-size: 1rem; font-weight: 600; color: var(--dark-blue); cursor: pointer; padding: 8px 10px; transition: 0.2s; border-bottom: 2px solid transparent; }
+        nav button.active { color: var(--gold); border-bottom: 2px solid var(--gold); }
         
-        .container { max-width: 950px; margin: 30px auto; padding: 0 20px; min-height: 600px; }
-        .content-section { display: none; background: white; padding: 45px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.06); border: 1px solid #edf2f7; }
-        .active-section { display: block !important; animation: fadeIn 0.5s ease-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        .container { max-width: 800px; margin: 20px auto; padding: 0 15px; min-height: 500px; }
+        .content-section { display: none; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .active-section { display: block !important; animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         
-        h2 { font-family: 'Heebo'; color: var(--dark-blue); border-right: 6px solid var(--gold); padding-right: 18px; margin-bottom: 30px; font-size: 2.2rem; }
-        .text-block { font-size: 1.25rem; text-align: justify; margin-bottom: 25px; white-space: pre-line; }
-        .family-name { color: var(--dark-blue); font-weight: 800; background: #fffcf0; padding: 0 5px; border-radius: 4px; }
+        h2 { font-family: 'Heebo'; color: var(--dark-blue); border-right: 4px solid var(--gold); padding-right: 12px; margin-bottom: 20px; font-size: 1.5rem; }
+        .text-block { font-size: 1.05rem; text-align: justify; margin-bottom: 15px; white-space: pre-line; }
+        .family-highlight { font-weight: 700; color: var(--dark-blue); }
 
-        .rebbe-img { width: 100%; max-width: 320px; border-radius: 20px; display: block; margin: 0 auto 30px; border: 4px solid var(--gold); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .rebbe-img { width: 220px; border-radius: 8px; display: block; margin: 0 auto 20px; border: 2px solid var(--gold); }
 
-        .story-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 35px; }
-        .story-card { background: #f9fbff; padding: 25px; border-radius: 15px; border-right: 5px solid var(--gold); box-shadow: 0 3px 6px rgba(0,0,0,0.03); }
-        .story-card h4 { margin: 0 0 12px 0; color: var(--dark-blue); font-size: 1.3rem; font-family: 'Heebo'; }
+        .story-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; margin-top: 25px; }
+        .story-card { background: #f1f5f9; padding: 15px; border-radius: 8px; border-right: 4px solid var(--gold); }
+        .story-card h4 { margin: 0 0 8px 0; color: var(--dark-blue); font-size: 1.1rem; }
 
-        .form-group { margin-bottom: 20px; }
-        label { font-weight: bold; display: block; margin-bottom: 8px; color: var(--dark-blue); }
-        input, textarea { width: 100%; padding: 14px; border: 1px solid #cbd5e0; border-radius: 10px; font-family: inherit; font-size: 1.1rem; box-sizing: border-box; transition: 0.3s; }
-        input:focus, textarea:focus { border-color: var(--gold); outline: none; box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1); }
-        .btn-send { background: var(--dark-blue); color: white; border: none; padding: 18px; border-radius: 10px; font-weight: 900; cursor: pointer; width: 100%; font-size: 1.2rem; transition: 0.3s; }
-        .btn-send:hover { background: #0a2a50; transform: scale(1.01); }
+        input, textarea { width: 100%; padding: 10px; border: 1px solid #cbd5e0; border-radius: 6px; font-family: inherit; font-size: 0.95rem; box-sizing: border-box; margin-bottom: 15px; }
+        .btn-send { background: var(--dark-blue); color: white; border: none; padding: 12px; border-radius: 6px; font-weight: 700; cursor: pointer; width: 100%; font-size: 1.05rem; }
         
-        .map-box { height: 400px; border-radius: 15px; overflow: hidden; margin: 25px 0; border: 2px solid #e2e8f0; }
-        
-        footer { text-align: center; padding: 40px; background: var(--dark-blue); color: white; margin-top: 50px; font-size: 1.2rem; }
-        .whatsapp-float { position: fixed; bottom: 30px; left: 30px; background: #25d366; color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 2000; transition: 0.3s; }
-        .whatsapp-float:hover { transform: scale(1.1); }
+        footer { text-align: center; padding: 20px; background: var(--dark-blue); color: white; font-size: 0.9rem; }
+        .whatsapp-float { position: fixed; bottom: 20px; left: 20px; background: #25d366; color: white; padding: 10px 20px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 0.9rem; z-index: 2000; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
     </style>
 </head>
 <body>
 
 <header>
     <div class="logo-container">
-        <img src="Screenshot_20251228_200044_Chrome.jpg" alt="בית חב"ד פלובדיב">
+        <img src="Screenshot_20251228_200044_Chrome.jpg" alt="לוגו">
     </div>
     <h1>בית חב"ד פלובדיב</h1>
     <div class="slogan">הבית שלך בפלובדיב</div>
 </header>
 
 <nav>
-    <button onclick="showSection('home')" id="btn-home" class="active">דבר השליח</button>
+    <button onclick="showSection('home')" id="btn-home" class="active">בית</button>
     <button onclick="showSection('rebbe')" id="btn-rebbe">נשיא הדור</button>
-    <button onclick="showSection('history')" id="btn-history">היסטוריה וגבורה</button>
+    <button onclick="showSection('history')" id="btn-history">היסטוריה</button>
     <button onclick="showSection('shabbat')" id="btn-shabbat">סעודות שבת</button>
-    <button onclick="showSection('contact')" id="btn-contact">מיקום ותרומה</button>
+    <button onclick="showSection('contact')" id="btn-contact">קשר ותרומה</button>
 </nav>
 
 <div class="container">
@@ -71,96 +64,73 @@
     <div id="home" class="content-section active-section">
         <h2>דבר השליח</h2>
         <div class="text-block">
-            שלום וברוכים הבאים לביתנו! שמי הוא <strong>הרב מענדי מנדלזון</strong>, ויחד עם רעייתי המסורה <span class="family-name">הרבנית ריקי</span> וילדינו האהובים <span class="family-name">לוי ומוסיא</span>, זכינו להישלח על ידי הרבי מליובאוויטש להפיץ אור וחום יהודי בעיר המיוחדת פלובדיב.
-
-            עבורנו, בית חב"ד הוא הרבה יותר ממרכז קהילתי - הוא משפחה אחת גדולה. אנו פועלים ללא הרף כדי שכל יהודי המבקר בבולגריה, בין אם הוא מטייל, איש עסקים או סטודנט, ירגיש שיש לו כתובת חמה, בטוחה ואוהבת לכל צורך.
-
-            בבית חב"ד פלובדיב תמצאו תמיד אוזן קשבת, עזרה גשמית במאור פנים ושיעורי תורה מרתקים. <span class="family-name">הרבנית ריקי</span> משקיעה את כל הלב והנשמה בהכנת סעודות השבת המפורסמות שלנו, המשלבות טעמים ביתיים עם אווירה של קדושה ורוממות רוח. <span class="family-name">לוי ומוסיא</span>, השלוחים הצעירים שלנו, מחכים לקבל את פניכם בחיוך רחב שכובש כל לב. אנו מזמינים אתכם להיכנס פנימה, להרגיש בבית ולהצטרף למשפחת חב"ד פלובדיב.
+            ברוכים הבאים! שמי הוא <strong>הרב מענדי מנדלזון</strong>, ויחד עם רעייתי המסורה <span class="family-highlight">הרבנית ריקי</span> וילדינו האהובים <span class="family-highlight">לוי ומוסיא</span>, אנו זוכים לנהל את הבית היהודי בפלובדיב.
+            אנו כאן כדי להעניק לכל יהודי תחושת שייכות, אוזן קשבת ובית חם בבולגריה. <span class="family-highlight">הרבנית ריקי</span> משקיעה את כל הלב בסעודות השבת שלנו, וילדינו <span class="family-highlight">לוי ומוסיא</span> כבר מחכים לפגוש אתכם. בואו להרגיש בבית!
         </div>
     </div>
 
     <div id="rebbe" class="content-section">
         <h2>נשיא הדור</h2>
-        <img src="https://chabad-bg.org/wp-content/uploads/2021/01/rebbe-portrait.jpg" class="rebbe-img" alt="כ"ק אדמו"ר מליובאוויטש">
-        <div class="text-block" style="text-align: center; font-weight: bold;">
-            "אהבת ישראל היא הדרך היחידה להאיר את העולם ולהביא את הגאולה."
-        </div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Menachem_Mendel_Schneerson.jpg/330px-Menachem_Mendel_Schneerson.jpg" class="rebbe-img" alt="הרבי מליובאוויטש">
         <div class="text-block">
-            הרבי מליובאוויטש, רבי מנחם מענדל שניאורסון, הוא המנהיג שהוביל את מהפכת היהדות המודרנית. חזונו האינסופי הוליד אלפי בתי חב"ד ברחבי תבל, מתוך מטרה אחת: להבטיח שאף יהודי לא יישאר מאחור. הרבי לימד אותנו שכל יהודי הוא יהלום נדיר, וכל מצווה קטנה היא צעד ענק אל עבר עולם מושלם יותר.
+            הרבי מליובאוויטש לימד אותנו שכל יהודי הוא יהלום וכל מצווה קטנה מקרבת את הגאולה. חזונו הוא הכוח המניע של בית חב"ד פלובדיב.
         </div>
-        
         <div class="story-grid">
-            <div class="story-card"><h4>ספירת יהלומים</h4><p>כששאלו את הרבי איך יש לו כוח לברך אלפי אנשים, ענה: "כשסופרים יהלומים יקרים, לא מתעייפים".</p></div>
-            <div class="story-card"><h4>מדליק פנסים</h4><p>הרבי הגדיר את תפקיד השליח כמי שרק מקרב את האש, כי האור כבר קיים בתוך הנשמה היהודית.</p></div>
-            <div class="story-card"><h4>דאגה לפרט</h4><p>הרבי התכתב עם אלפי אנשים ודאג לכל יהודי בפינה הנידחת ביותר בעולם כאילו היה בנו יחידו.</p></div>
-            <div class="story-card"><h4>כוחו של חיוך</h4><p>אלפים העידו שמבט אחד בעיניו של הרבי נתן להם את הכוח לשנות את חייהם ולצמוח מתוך קשיים.</p></div>
-            <div class="story-card"><h4>אחריות ללא חופש</h4><p>במשך עשרות שנות הנהגה, הרבי לא יצא ליום חופש אחד, והקדיש כל רגע מזמנו לטובת עם ישראל.</p></div>
-            <div class="story-card"><h4>גאולה עכשיו</h4><p>הרבי פעל ללא הרף להחדיר בעולם את המודעות לכך שאנו נמצאים על סף הגאולה השלימה.</p></div>
+            <div class="story-card"><h4>ספירת יהלומים</h4><p>הרבי הסביר שכשסופרים יהלומים יקרים לא מתעייפים - כך הוא רואה כל יהודי.</p></div>
+            <div class="story-card"><h4>מדליק פנסים</h4><p>השליח רק מקרב את האש, כי האור כבר קיים בנשמה היהודית.</p></div>
+            <div class="story-card"><h4>דאגה לפרט</h4><p>הרבי דאג לכל יהודי בפינה הנידחת ביותר בעולם כאילו היה בנו יחידו.</p></div>
+            <div class="story-card"><h4>כוחו של חיוך</h4><p>מבט אחד מהרבי נתן כוח לאנשים לצמוח מתוך קשיים עצומים.</p></div>
+            <div class="story-card"><h4>אחריות תמידית</h4><p>הרבי לא יצא ליום חופש אחד, והקדיש כל רגע לטובת עם ישראל.</p></div>
+            <div class="story-card"><h4>הכנה לגאולה</h4><p>הרבי פעל להחדיר מודעות שבידינו להביא את הגאולה השלימה במעשה אחד טוב.</p></div>
         </div>
     </div>
 
     <div id="history" class="content-section">
         <h2>היסטוריה וגבורה</h2>
         <div class="text-block">
-            פלובדיב היא מהערים העתיקות והמרתקות באירופה, וקהילתה היהודית היא חלק בלתי נפרד מהפסיפס המרהיב שלה. במשך דורות חיו כאן יהודים חיי קהילה עשירים, הקימו מוסדות חינוך וחסד, ותרמו רבות לפיתוחה של העיר.
-
-            סיפור הגבורה של יהודי בולגריה במלחמת העולם השנייה הוא מופת להשגחה פרטית ולאומץ לב אנושי. בשנת 1943, כאשר תוכנן גירוש יהודי העיר למחנות, קמו תושבי פלובדיב ומנהיגיהם ועמדו כחומה בצורה על פסי הרכבת, ובכך מנעו את הגירוש והצילו את הקהילה כולה מהשמדה.
-
-            היום, בית חב"ד פועל כדי להפיח חיים חדשים במורשת המפוארת הזו. אנו דואגים שקול התורה והתפילה ימשיך להדהד ברחובות פלובדיב, מתוך גאווה יהודית ושמחה אמיתית. אנו רואים בשימור ההיסטוריה ובחיזוק העתיד את המשימה החשובה ביותר שלנו כאן.
+            פלובדיב היא קהילה עתיקה ומפוארת. בשנת 1943, תושבי העיר עמדו בגבורה על פסי הרכבת ומנעו את גירוש היהודים למחנות. אנו ממשיכים את שרשרת הדורות הזו בגאווה יהודית בלב בולגריה.
         </div>
     </div>
 
     <div id="shabbat" class="content-section">
-        <h2>הרשמה לסעודות שבת</h2>
-        <p class="text-block">נשמח לארח אתכם לסעודות שבת מרוממות הכוללות שירה, דברי תורה ואוכל כשר ומשובח. אנא מלאו את הפרטים:</p>
-        <div class="form-group"><input type="text" id="name" placeholder="שם מלא"></div>
-        <div class="form-group"><input type="number" id="guests" placeholder="מספר סועדים"></div>
-        <div class="form-group"><input type="date" id="date" title="תאריך השבת"></div>
-        <div class="form-group"><textarea id="special" placeholder="בקשות מיוחדות (אלרגיות, צמחונות, תינוקות וכו')"></textarea></div>
-        <button class="btn-send" onclick="sendWhatsApp()">שלח הרשמה לווטסאפ</button>
+        <h2>הרשמה לשבת</h2>
+        <input type="text" id="name" placeholder="שם מלא">
+        <input type="number" id="guests" placeholder="מספר סועדים">
+        <input type="date" id="date">
+        <textarea id="special" placeholder="בקשות מיוחדות או אלרגיות"></textarea>
+        <button class="btn-send" onclick="sendWhatsApp()">שלח הרשמה</button>
     </div>
 
     <div id="contact" class="content-section">
         <h2>מיקום ושותפות</h2>
-        <div class="text-block">אנו ממוקמים בלב העיר, במרחק הליכה מהאתרים המרכזיים. בואו לבקר!</div>
-        <div class="map-box">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2958.423985160867!2d24.7421625!3d42.144416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a03ed073693f1d%3A0x63f53835694200!2sPlovdiv%20Bulgaria!5e0!3m2!1sen!2sil!4v1700000000000!5m2!1sen!2sil" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-        <div style="background: var(--dark-blue); color: white; padding: 40px; border-radius: 20px; text-align: center;">
-            <h3>היו שותפים באור</h3>
-            <p>הפעילות שלנו נסמכת על תרומות השותפים בלבד. כל תרומה עוזרת לנו להמשיך להאיר!</p>
-            <a href="https://bit.ly/3TZMKwq" style="background: var(--gold); color: var(--dark-blue); padding: 18px 40px; text-decoration: none; font-weight: 900; border-radius: 50px; display: inline-block; margin-top: 15px; font-size: 1.3rem;">לתרומה מאובטחת</a>
+        <div style="background: var(--dark-blue); color: white; padding: 20px; border-radius: 8px; text-align: center;">
+            <p>הפעילות נסמכת על תרומות השותפים בלבד.</p>
+            <a href="https://bit.ly/3TZMKwq" style="background: var(--gold); color: var(--dark-blue); padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 5px; display: inline-block;">לתרומה מאובטחת</a>
         </div>
     </div>
 
 </div>
 
 <footer>בית חב"ד פלובדיב | הבית שלך בפלובדיב</footer>
-
-<a href="https://wa.me/972587679770" class="whatsapp-float">דברו איתנו בווטסאפ</a>
+<a href="https://wa.me/972587679770" class="whatsapp-float">ווטסאפ</a>
 
 <script>
     function showSection(id) {
-        const sections = document.querySelectorAll('.content-section');
-        sections.forEach(s => s.classList.remove('active-section'));
-        
-        const buttons = document.querySelectorAll('nav button');
-        buttons.forEach(b => b.classList.remove('active'));
-        
+        document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active-section'));
+        document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
         document.getElementById(id).classList.add('active-section');
         document.getElementById('btn-' + id).classList.add('active');
         window.scrollTo(0, 0);
     }
-
     function sendWhatsApp() {
         const name = document.getElementById('name').value;
         const guests = document.getElementById('guests').value;
         const date = document.getElementById('date').value;
         const special = document.getElementById('special').value;
-        const msg = `שלום הרב מענדי, אשמח להירשם לשבת בתאריך ${date}. \nשם: ${name}\nמספר סועדים: ${guests}\nבקשות מיוחדות: ${special}`;
+        const msg = `שלום הרב מענדי, אשמח להירשם לשבת בתאריך ${date}. שם: ${name}, סועדים: ${guests}. בקשות: ${special}`;
         window.location.href = "https://wa.me/972587679770?text=" + encodeURIComponent(msg);
     }
 </script>
 
 </body>
-    </html>
+</html>

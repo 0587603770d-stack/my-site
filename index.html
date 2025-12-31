@@ -6,99 +6,168 @@
     <title>בית חב"ד פלובדיב - הבית שלך בפלובדיב</title>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&family=Heebo:wght@800;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Assistant', sans-serif; margin: 0; background-color: #f4f7f9; color: #1a202c; line-height: 1.8; }
-        header { background: #05162d; color: white; padding: 50px 20px; text-align: center; }
-        .logo { width: 100px; height: 100px; background: white; border-radius: 50%; margin: 0 auto 15px; padding: 10px; display: flex; align-items: center; justify-content: center; }
-        .logo img { max-width: 100%; border-radius: 50%; }
-        h1 { font-family: 'Heebo'; font-size: 2.8rem; margin: 0; }
-        .slogan { font-size: 1.5rem; color: #d4af37; font-weight: bold; margin-top: 10px; }
+        :root { --dark-blue: #05162d; --gold: #d4af37; --light-bg: #f4f7f9; }
+        body { font-family: 'Assistant', sans-serif; margin: 0; background-color: var(--light-bg); color: #1a202c; line-height: 1.8; text-align: right; }
         
-        nav { background: white; border-bottom: 2px solid #e2e8f0; padding: 10px; text-align: center; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: center; flex-wrap: wrap; }
-        nav a { margin: 5px 12px; text-decoration: none; color: #05162d; font-weight: bold; cursor: pointer; padding: 8px; transition: 0.3s; }
-        nav a.active { color: #d4af37; border-bottom: 3px solid #d4af37; }
+        header { background: var(--dark-blue); color: white; padding: 40px 20px; text-align: center; }
+        .logo-circle { width: 90px; height: 90px; background: white; border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .logo-circle img { width: 100%; height: auto; }
+        h1 { font-family: 'Heebo'; font-size: 2.5rem; margin: 0; }
+        .slogan { font-size: 1.3rem; color: var(--gold); font-weight: bold; margin-top: 5px; }
         
-        .container { max-width: 950px; margin: 30px auto; padding: 0 20px; }
-        .section { display: none; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .active-section { display: block; animation: fadeIn 0.5s; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        nav { background: white; border-bottom: 2px solid #e2e8f0; padding: 10px; text-align: center; position: sticky; top: 0; z-index: 1000; }
+        nav button { background: none; border: none; margin: 5px 10px; font-size: 1.1rem; font-weight: bold; color: var(--dark-blue); cursor: pointer; padding: 8px 15px; transition: 0.3s; border-bottom: 3px solid transparent; }
+        nav button.active { color: var(--gold); border-bottom: 3px solid var(--gold); }
         
-        h2 { font-family: 'Heebo'; color: #05162d; border-right: 5px solid #d4af37; padding-right: 15px; margin-top: 0; }
-        h3 { font-family: 'Heebo'; color: #05162d; margin-top: 30px; }
-        .text-content { font-size: 1.15rem; text-align: justify; white-space: pre-line; }
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; min-height: 500px; }
+        .content-section { display: none; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+        .active-section { display: block; animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        h2 { font-family: 'Heebo'; color: var(--dark-blue); border-right: 5px solid var(--gold); padding-right: 15px; margin-top: 0; }
+        .monologue { font-size: 1.15rem; text-align: justify; margin-bottom: 25px; }
 
-        .rebbe-img { width: 100%; max-width: 350px; border-radius: 15px; display: block; margin: 25px auto; border: 3px solid #e2e8f0; }
+        .rebbe-container { text-align: center; margin: 25px 0; }
+        .rebbe-img { width: 100%; max-width: 320px; border-radius: 10px; border: 4px solid var(--gold); }
 
-        /* גריד סיפורים */
-        .story-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
-        .story-card { background: #f0f4f8; border-right: 4px solid #d4af37; padding: 20px; border-radius: 10px; }
-        .story-card strong { color: #05162d; display: block; margin-bottom: 8px; font-size: 1.2rem; }
+        .grid-box { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 25px; }
+        .card { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px; border-radius: 10px; }
+        .card h4 { margin-top: 0; color: var(--dark-blue); border-bottom: 2px solid var(--gold); display: inline-block; padding-bottom: 3px; }
 
-        /* גריד אטרקציות */
-        .attr-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 20px; }
-        .attr-card { border: 1px solid #e2e8f0; padding: 20px; border-radius: 12px; background: #fff; transition: 0.3s; }
-        .attr-card:hover { transform: translateY(-3px); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-
-        input, select, textarea { width: 100%; padding: 12px; margin-top: 8px; margin-bottom: 20px; border: 1px solid #cbd5e0; border-radius: 8px; box-sizing: border-box; }
-        .btn { background: #05162d; color: white; border: none; padding: 15px 30px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; font-size: 1.1rem; }
+        input, textarea { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #cbd5e0; border-radius: 8px; font-family: inherit; }
+        .btn-send { background: var(--dark-blue); color: white; border: none; padding: 15px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; font-size: 1.1rem; }
         
-        .donate-box { background: #05162d; color: white; padding: 40px; border-radius: 20px; text-align: center; margin-top: 40px; }
-        .donate-btn { background: #d4af37; color: #05162d; padding: 15px 40px; text-decoration: none; font-weight: 900; border-radius: 50px; display: inline-block; margin-top: 20px; }
-        
-        footer { text-align: center; padding: 30px; font-size: 1.1rem; color: #4a5568; background: #edf2f7; border-top: 1px solid #e2e8f0; }
-        .whatsapp { position: fixed; bottom: 20px; left: 20px; background: #25d366; color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; z-index: 2000; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        footer { text-align: center; padding: 30px; font-size: 1rem; color: #718096; background: #edf2f7; margin-top: 40px; border-top: 1px solid #e2e8f0; }
+        .whatsapp-float { position: fixed; bottom: 20px; left: 20px; background: #25d366; color: white; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 2000; }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo"><img src="Screenshot_20251228_200044_Chrome.jpg"></div>
+    <div class="logo-circle"><img src="Screenshot_20251228_200044_Chrome.jpg" alt="Logo"></div>
     <h1>בית חב"ד פלובדיב</h1>
     <div class="slogan">הבית שלך בפלובדיב</div>
 </header>
 
-<nav id="mainNav">
-    <a onclick="openTab('home', this)" class="active">בית</a>
-    <a onclick="openTab('rebbe', this)">נשיא הדור</a>
-    <a onclick="openTab('history', this)">היסטוריה</a>
-    <a onclick="openTab('travelers', this)">אטרקציות ומידע</a>
-    <a onclick="openTab('shabbat', this)">הרשמה לשבת</a>
-    <a onclick="openTab('contact', this)">כתובת ותרומה</a>
+<nav>
+    <button onclick="showSection('home')" id="btn-home" class="active">בית</button>
+    <button onclick="showSection('rebbe')" id="btn-rebbe">נשיא הדור</button>
+    <button onclick="showSection('history')" id="btn-history">היסטוריה</button>
+    <button onclick="showSection('info')" id="btn-info">אטרקציות</button>
+    <button onclick="showSection('shabbat')" id="btn-shabbat">סעודות שבת</button>
+    <button onclick="showSection('contact')" id="btn-contact">תרומה וקשר</button>
 </nav>
 
 <div class="container">
 
-    <div id="home" class="section active-section">
+    <div id="home" class="content-section active-section">
         <h2>דבר השליח</h2>
-        <div class="text-content">
-            ברוכים הבאים לבית חב"ד פלובדיב! שמי הוא הרב מענדי מנדלזון, ויחד עם רעייתי המסורה הרבנית ריקי וילדינו האהובים לוי ומוסיא, אנו זוכים לשרת כשלוחיו של הרבי מליובאוויטש כאן בעיר העתיקה והיפה ביותר בבולגריה. פלובדיב היא עיר עם נשמה עתיקה, והשליחות שלנו היא להוסיף לה אור יהודי חי ותוסס.
+        <div class="monologue">
+            ברוכים הבאים לבית חב"ד פלובדיב! שמי הוא הרב מענדי מנדלזון, ויחד עם רעייתי המסורה הרבנית ריקי וילדינו היקרים לוי ומוסיא, אנו זוכים לנהל את המרכז היהודי בעיר העתיקה והיפה ביותר בבולגריה. פלובדיב היא עיר עם נשמה עתיקה, והשליחות שלנו היא להפיץ בה אור יהודי חם, חי ותוסס לכל יהודי באשר הוא.
 
-            עבורנו, הבית הזה הוא הלב הפועם של הקהילה והמטיילים. כשאנו פותחים את הדלת, אנו לא רק מציעים מקום פיזי, אלא מעניקים תחושת שייכות ומשפחתיות. הרבנית ריקי משקיעה את כל כוחה ומרצה בסעודות השבת המפורסמות שלנו, שמשלבות ניחוחות של בית עם קדושה עילאית. הילדים שלנו, לוי ומוסיא, הם השלוחים הכי מתוקים בעיר; החיוך שלהם והאופן שבו הם מקבלים כל אורח מזכירים לנו בכל יום מחדש שכל יהודי הוא יהלום יקר ערך שצריך ללטש באהבה.
+            עבורנו, הבית הזה הוא הלב הפועם של הקהילה והמטיילים. כשאנו פותחים את הדלת, אנו לא רק מציעים מקום פיזי, אלא מעניקים תחושת שייכות אמיתית. הרבנית ריקי משקיעה את כל כוחה ומרצה בסעודות השבת המפורסמות שלנו, שמשלבות ניחוחות של בית עם קדושה עילאית. הילדים שלנו, לוי ומוסיא, הם השלוחים הכי מתוקים בעיר; החיוך שלהם והאופן שבו הם מקבלים כל אורח מזכירים לנו בכל יום מחדש שכל יהודי הוא יהלום יקר ערך שצריך ללטש באהבה ובסבלנות.
 
-            בין אם אתם תרמילאים שזקוקים למנוחה, אנשי עסקים בנסיעת עבודה או סטודנטים לרפואה שהגיעו ללמוד כאן - דעו שמרגע שנכנסתם, אתם בבית. אנו כאן לכל דבר: החל מאוכל כשר וחם, דרך עצה יהודית ולימוד משותף, ועד לעזרה גשמית בכל צורך. השאיפה שלנו היא שכל יהודי העובר בפלובדיב יצא מכאן כשהוא מרגיש גאה בזהותו, מחוזק ברוחו ובידיעה שיש לו משפחה אוהבת בבולגריה. הבית שלנו הוא הבית שלכם, בואו בשמחה!
+            בין אם אתם תרמילאים שזקוקים למנוחה, אנשי עסקים בנסיעת עבודה קצרה או סטודנטים לרפואה שהגיעו ללמוד כאן - דעו שמרגע שנכנסתם, אתם חלק מהמשפחה. אנו כאן לכל דבר ועניין: החל מאוכל כשר וחם, דרך עצה יהודית ולימוד משותף, ועד לעזרה גשמית בכל צורך שיתעורר. השאיפה שלנו היא שכל יהודי העובר בפלובדיב יצא מכאן כשהוא מרגיש גאה בזהותו, מחוזק ברוחו ובידיעה שיש לו משפחה אוהבת בבולגריה. הבית שלנו הוא הבית שלכם, דלתנו תמיד פתוחה!
         </div>
     </div>
 
-    <div id="rebbe" class="section">
+    <div id="rebbe" class="content-section">
         <h2>נשיא הדור - הרבי מליובאוויטש</h2>
-        <div class="text-content">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Menachem_Mendel_Schneerson.jpg/330px-Menachem_Mendel_Schneerson.jpg" class="rebbe-img" alt="הרבי">
-            הרבי מליובאוויטש, רבי מנחם מענדל שניאורסון, הוא המנהיג שהפיח רוח חיים חדשה בעם היהודי לאחר חורבן השואה. חזונו האינסופי הוא המנוע מאחורי כל בית חב"ד בעולם. עבור הרבי, לא היה דבר כזה "יהודי רחוק" - כל יהודי הוא חלק בלתי נפרד מגוף אחד גדול, והתפקיד שלנו הוא להזכיר לכל אחד את הקשר הנצחי שלו לאבינו שבשמיים.
-
-            הרבי לימד אותנו שבדורנו, הדרך היחידה להגיע ללב היא דרך אהבת ישראל ללא תנאי. הוא לא הסתפק בבניית מוסדות, אלא שלח את שלוחיו לכל פינה נידחת בעולם כדי להבטיח שאף יהודי לא יישאר מאחור. בשיחותיו הדגיש הרבי שוב ושוב את "כוחו של היחיד" ואת חשיבותו של המעשה הקטן - מצווה אחת, חיוך אחד או מילה טובה - שיכולים להכריע את הכף ולהביא גאולה לעולם כולו. כאן בפלובדיב, אנו משתדלים לחיות לאור החזון הזה, להפיץ טוב, ולהיות כתובת לכל עניין יהודי מתוך מסירות נפש ושמחה אמיתית.
+        <div class="rebbe-container">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Menachem_Mendel_Schneerson.jpg/330px-Menachem_Mendel_Schneerson.jpg" class="rebbe-img" alt="כ"ק אדמו"ר מליובאוויטש">
         </div>
+        <div class="monologue">
+            הרבי מליובאוויטש, רבי מנחם מענדל שניאורסון, הוא המנהיג שהפיח רוח חיים חדשה בעם היהודי לאחר השואה. חזונו האינסופי הוא המנוע מאחורי אלפי בתי חב"ד בעולם. עבור הרבי, לא היה דבר כזה "יהודי רחוק" - כל יהודי הוא חלק בלתי נפרד מגוף אחד גדול, והתפקיד שלנו הוא להזכיר לכל אחד את הקשר הנצחי והבלתי ניתן לניתוק שלו לאבינו שבשמיים.
 
-        <h3>6 ניצוצות של אור - סיפורים על הרבי</h3>
-        <div class="story-grid">
-            <div class="story-card"><strong>1. ספירת יהלומים</strong>פעם שאל אדם את הרבי איך אינו מתעייף מלעמוד שעות ולברך אלפים. השיב הרבי: "כשסופרים יהלומים, לא מתעייפים".</div>
-            <div class="story-card"><strong>2. הפנס והשליח</strong>הרבי הגדיר את השליח כ"מדליק פנסים". תפקידו אינו ליצור את האור, אלא לקרב את האש לנשמה עד שתאיר בעצמה.</div>
-            <div class="story-card"><strong>3. מצה באי בודד</strong>סיפור מופלא על יהודי במקום נידח שקיבל משלוח מצה שמורה בערב פסח בהוראת הרבי, למרות שאף אחד לא ידע שהוא שם.</div>
-            <div class="story-card"><strong>4. כוחו של חיוך</strong>אדם שבור שהגיע לרבי העיד שחיוכו של הרבי היה כה מלא אהבה, שבאותו רגע הוא הרגיש שכל קשייו נעלמו כלא היו.</div>
-            <div class="story-card"><strong>5. אחריות ללא חופשה</strong>הרבי מעולם לא יצא לחופשה מימיו. הוא האמין שכל רגע בחיים הוא שליחות קדושה שאין להפסיק אותה.</div>
-            <div class="story-card"><strong>6. אחדות מעל הכל</strong>הרבי תמיד הדגיש שגם כשיש חילוקי דעות, המכנה המשותף כבני עם אחד חזק מכל דבר אחר שמפריד בינינו.</div>
+            הרבי לימד אותנו שבדורנו, הדרך היחידה להגיע ללב היא דרך אהבת ישראל ללא תנאי וסבלנות אינסופית. הוא לא הסתפק בבניית מוסדות מפוארים, אלא שלח את שלוחיו לכל פינה נידחת בעולם כדי להבטיח שאף יהודי לא יישאר מאחור, לא בגשמיות ולא ברוחניות. בשיחותיו הדגיש הרבי שוב ושוב את "כוחו של היחיד" ואת חשיבותו של המעשה הקטן - מצווה אחת, חיוך אחד או מילה טובה - שיכולים להכריע את הכף ולהביא גאולה לעולם כולו. כאן בפלובדיב, אנו משתדלים לחיות לאור החזון הזה בכל יום, להפיץ טוב, ולהיות כתובת לכל עניין יהודי מתוך מסירות נפש ושמחה אמיתית. המטרה היא אחת: להכין את העולם לגאולה השלימה.
+        </div>
+        <h3>6 סיפורים וניצוצות</h3>
+        <div class="grid-box">
+            <div class="card"><h4>1. ספירת יהלומים</h4><p>לרבי היה כוח לעמוד שעות ולברך אלפים. כשנשאל איך אינו מתעייף, ענה: "כשסופרים יהלומים, לא מתעייפים".</p></div>
+            <div class="card"><h4>2. פנסים בחושך</h4><p>הרבי הגדיר את השליח כ"מדליק פנסים". הוא רק מקרב את האש, והנשמה היהודית כבר מאירה מעצמה.</p></div>
+            <div class="card"><h4>3. דאגה למרחקים</h4><p>יהודי באי בודד קיבל משלוח מצה שמורה בערב פסח בהוראת הרבי, למרות שאף אחד לא ידע על קיומו שם.</p></div>
+            <div class="card"><h4>4. מבט של אהבה</h4><p>אדם שבור הגיע לרבי והעיד שחיוכו ומבטו של הרבי נתנו לו כוח לחיות מחדש לאחר שנים של ייאוש.</p></div>
+            <div class="card"><h4>5. ללא הפסקה</h4><p>הרבי מעולם לא יצא לחופשה מימיו. כל רגע נוצל לעזרה לזולת וללימוד תורה ללא הפסק.</p></div>
+            <div class="card"><h4>6. אחדות אמת</h4><p>הרבי תמיד הדגיש שגם כשיש חילוקי דעות קשים, המכנה המשותף כבני עם אחד חזק מכל מה שמפריד.</p></div>
         </div>
     </div>
 
-    <div id="history" class="section">
-        <h2>היסטוריה וגבורה בפלובדיב</h2>
-        <div class="text-content">
-            קהילת פלובדיב היא אחת הקהילות העתיקות והמפוארות ביותר באירופה, עם שורשים המגיעים עד לתקופה הרו
+    <div id="history" class="content-section">
+        <h2>היסטוריה וגבורה</h2>
+        <div class="monologue">
+            קהילת פלובדיב היא מהעתיקות באירופה, עם שורשים המגיעים עד לתקופה הרומית. העיר ידועה בסיפור הגבורה המדהים של תושביה במלחמת העולם השנייה; בשנת 1943, כאשר רכבות הגירוש המתינו בתחנה, יצאו המונים מתושבי העיר ובראשם מנהיגי הדת, עמדו על פסי הרכבת ומנעו את הגירוש. אנו בבית חב"ד גאים להמשיך את המורשת המפוארת הזו ולהחזיר את הגאווה היהודית לסמטאות העיר העתיקה.
+        </div>
+    </div>
+
+    <div id="info" class="content-section">
+        <h2>6 אטרקציות בפלובדיב</h2>
+        <div class="grid-box">
+            <div class="card"><h4>🏛️ האמפיתיאטרון</h4>אחד האתרים הרומיים השמורים בעולם, פעיל עד היום.</div>
+            <div class="card"><h4>🏡 העיר העתיקה</h4>סמטאות ציוריות ובתי אצילים מרשימים מהמאה ה-19.</div>
+            <div class="card"><h4>🕍 בית הכנסת ציון</h4>בית כנסת עתיק ויפהפה ששוחזר ומייצג את הקהילה.</div>
+            <div class="card"><h4>🚶 המדרחוב הראשי</h4>המדרחוב הארוך ביותר באירופה, מלא בחנויות ואווירה.</div>
+            <div class="card"><h4>⛲ המזרקות המזמרות</h4>מופע מים ואור מרהיב בגינה המרכזית (בעונה).</div>
+            <div class="card"><h4>🗿 גבעת אליושה</h4>נקודת תצפית פנורמית עוצרת נשימה על כל העיר.</div>
+        </div>
+    </div>
+
+    <div id="shabbat" class="content-section">
+        <h2>הרשמה לסעודות שבת</h2>
+        <p>בואו לחוות שבת של שירה ואווירה יהודית. אנא הירשמו מראש:</p>
+        <input type="text" id="name" placeholder="שם מלא">
+        <input type="number" id="guests" placeholder="מספר סועדים">
+        <input type="date" id="date">
+        <button class="btn-send" onclick="sendWhatsApp()">שלח הרשמה בווטסאפ</button>
+    </div>
+
+    <div id="contact" class="content-section">
+        <h2>כתובת ושותפות</h2>
+        <div style="height: 300px; background: #eee; border-radius: 10px; margin-bottom: 20px; overflow: hidden;">
+             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2958.212!2d24.742!3d42.148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDLCsDA4JzUyLjgiTiAyNMKwNDQnMzEuMiJF!5e0!3m2!1she!2sil!4v1610000000000" width="100%" height="100%" style="border:0;"></iframe>
+        </div>
+        <div style="background: var(--dark-blue); color: white; padding: 30px; border-radius: 15px; text-align: center;">
+            <h3>היו שותפים באור</h3>
+            <p>הפעילות שלנו נסמכת על תרומות השותפים בלבד. עזרו לנו להמשיך להאיר!</p>
+            <a href="https://bit.ly/3TZMKwq" style="background: var(--gold); color: var(--dark-blue); padding: 15px 30px; text-decoration: none; font-weight: bold; border-radius: 50px; display: inline-block;">לתרומה מאובטחת</a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    בית חב"ד פלובדיב | הבית שלך בפלובדיב
+</footer>
+
+<a href="https://wa.me/972587679770" class="whatsapp-float">ווטסאפ לבית חב"ד</a>
+
+<script>
+    function showSection(id) {
+        // הסתרת כל הדפים
+        const sections = document.querySelectorAll('.content-section');
+        sections.forEach(s => s.classList.remove('active-section'));
+        
+        // הסרת סימון מהכפתורים
+        const buttons = document.querySelectorAll('nav button');
+        buttons.forEach(b => b.classList.remove('active'));
+        
+        // הצגת הדף הנבחר
+        document.getElementById(id).classList.add('active-section');
+        
+        // סימון הכפתור הנבחר
+        document.getElementById('btn-' + id).classList.add('active');
+        
+        // גלילה לראש
+        window.scrollTo(0, 0);
+    }
+
+    function sendWhatsApp() {
+        const name = document.getElementById('name').value;
+        const guests = document.getElementById('guests').value;
+        const date = document.getElementById('date').value;
+        const msg = `שלום הרב מענדי, אשמח להירשם לשבת בתאריך ${date}. שם: ${name}, מספר סועדים: ${guests}`;
+        window.location.href = "https://wa.me/972587679770?text=" + encodeURIComponent(msg);
+    }
+</script>
+
+</body>
+                                                       </html>
